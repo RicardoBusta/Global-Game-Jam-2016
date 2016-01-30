@@ -2068,7 +2068,7 @@ MonoBehaviour:
   matchPoint: 50
   devilWordCount: 3
   babeWordCount: 3
-  waitTimeAfterSayWord: 1
+  waitTimeAfterSayWord: 2
   ingredientCount: 5
   finisherCount: 3
   levelDesign: {fileID: 498297373}
@@ -2096,6 +2096,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f42bfef8d5f33f14588714012ca03c76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  game: {fileID: 0}
 --- !u!1 &518853642
 GameObject:
   m_ObjectHideFlags: 0
@@ -2609,6 +2610,48 @@ MeshCollider:
   serializedVersion: 2
   m_Convex: 1
   m_Mesh: {fileID: 4300000, guid: 2fb10d649f9f64a4984c89343c8bacd6, type: 3}
+--- !u!1001 &935018378
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 491644, guid: cb70825d18a8a12498b56dde7072ac27, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -0.20351592
+      objectReference: {fileID: 0}
+    - target: {fileID: 491644, guid: cb70825d18a8a12498b56dde7072ac27, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 4.254056
+      objectReference: {fileID: 0}
+    - target: {fileID: 491644, guid: cb70825d18a8a12498b56dde7072ac27, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -7.793727
+      objectReference: {fileID: 0}
+    - target: {fileID: 491644, guid: cb70825d18a8a12498b56dde7072ac27, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 491644, guid: cb70825d18a8a12498b56dde7072ac27, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 491644, guid: cb70825d18a8a12498b56dde7072ac27, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 491644, guid: cb70825d18a8a12498b56dde7072ac27, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 491644, guid: cb70825d18a8a12498b56dde7072ac27, type: 2}
+      propertyPath: m_RootOrder
+      value: 14
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: cb70825d18a8a12498b56dde7072ac27, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1028137638
 GameObject:
   m_ObjectHideFlags: 0
@@ -3035,7 +3078,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1273480228
 SpriteRenderer:
   m_ObjectHideFlags: 0

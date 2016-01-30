@@ -32,14 +32,19 @@ public class GameLoop : MonoBehaviour
     //    public float devilMaxSlider;
     //    public float babeMaxSlider;
 
+  [HideInInspector]
     public float matchPoint;
 
+  [HideInInspector]
     public int devilWordCount;
+  [HideInInspector]
     public int babeWordCount;
 
     public float waitTimeAfterSayWord = 1;
 
+  [HideInInspector]
     public int ingredientCount;
+  [HideInInspector]
     public int finisherCount;
 
     bool devilIsHappy = false;
@@ -148,7 +153,7 @@ public class GameLoop : MonoBehaviour
     {
         for (int i = 0; i < list.Count; i++)
         {
-            int t = Random.Range(i, list.Count - 1);
+            int t = Random.Range(i, list.Count);
             int temp = list[i];
             list[i] = list[t];
             list[t] = temp;
@@ -162,6 +167,7 @@ public class GameLoop : MonoBehaviour
         {
             sort.Add(i);
         }
+
         Shuffle(sort);
         for (int i = 0; i < ingredientCount; i++)
         {
@@ -172,6 +178,7 @@ public class GameLoop : MonoBehaviour
         {
             sort.Add(i);
         }
+
         Shuffle(sort);
         for (int i = 0; i < finisherCount; i++)
         {

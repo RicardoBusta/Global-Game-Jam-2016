@@ -5,12 +5,10 @@ public class LevelDesign : MonoBehaviour {
 
   public GameLoop game;
 
-	// Use this for initialization
 	void Start () {
 	
 	}
 	
-	// Update is called once per frame
 	void Update () {
 	
 	}
@@ -23,28 +21,42 @@ public class LevelDesign : MonoBehaviour {
 
     switch( PersistState.GetPersistState().stage ){
     case 1:
-      SetBabeDifficulty(2, 30f, 10f);
-      game.matchPoint = 100f; // 3-second cost
+      SetBabeDifficulty(1, 30f, 8f);
+      game.matchPoint = 12f; // 2-second cost
+
+      game.ingredientCount = 3;
+      game.finisherCount = 1;
       break;
     case 2:
-      SetBabeDifficulty(2, 30f, 10f);
-      SetDevilDifficulty(1, 60f, 20f);
-      game.matchPoint = 100f; // 3-second cost
+      SetBabeDifficulty(2, 30f, 8f);
+      game.matchPoint = 12f; // 2-second cost
+
+      game.ingredientCount = 3;
+      game.finisherCount = 2;
       break;
     case 3:
-      SetBabeDifficulty(2, 30f, 10f);
-      SetDevilDifficulty(2, 60f, 20f);
-      game.matchPoint = 10f; // 3-second cost
+      SetBabeDifficulty(1, 30f, 15f);
+      SetDevilDifficulty(1, 40f, 15f);
+      game.matchPoint = 12f; // 3-second cost
+
+      game.ingredientCount = 3;
+      game.finisherCount = 2;
       break;
     case 4:
-      SetBabeDifficulty(2, 30f, 10f);
+      SetBabeDifficulty(1, 30f, 15f);
       SetDevilDifficulty(2, 60f, 20f);
-      game.matchPoint = 10f; // 3-second cost
+      game.matchPoint = 18f; // 3-second cost
+
+      game.ingredientCount = 5;
+      game.finisherCount = 2;
       break;
     case 5:
-      SetBabeDifficulty(2, 30f, 10f);
+      SetBabeDifficulty(2, 40f, 15f);
       SetDevilDifficulty(2, 60f, 20f);
-      game.matchPoint = 10f; // 3-second cost
+      game.matchPoint = 20f; // 3-second cost
+
+      game.ingredientCount = 5;
+      game.finisherCount = 3;
       break;
     }
       
