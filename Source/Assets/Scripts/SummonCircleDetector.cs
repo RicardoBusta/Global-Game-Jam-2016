@@ -46,7 +46,7 @@ public class SummonCircleDetector : MonoBehaviour
                 }
                 else
                 {
-                    phrase.text += "-";
+                    phrase.text += " ";
                 }
             }
         }
