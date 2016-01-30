@@ -6,8 +6,12 @@ public class DragTransform : MonoBehaviour {
     private Color originalColor = Color.yellow;
     private bool dragging = false;
     private float distance;
-    public Collider moveCollider;
+    Collider moveCollider;
 
+    void Start()
+    {
+        moveCollider = GameObject.FindWithTag("Ingredient Collider").GetComponent<Collider>();
+    }
 
     void OnMouseEnter()
     {
