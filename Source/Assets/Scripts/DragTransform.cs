@@ -7,11 +7,13 @@ public class DragTransform : MonoBehaviour {
     private bool dragging = false;
     private float distance;
     Collider moveCollider;
+    Collider floorCollider;
     Vector3 previousPos;
 
     void Start()
     {
         moveCollider = GameObject.FindWithTag("Ingredient Collider").GetComponent<Collider>();
+        floorCollider = GameObject.FindWithTag("Floor").GetComponent<Collider>();
         previousPos = transform.position;
     }
 
@@ -43,7 +45,18 @@ public class DragTransform : MonoBehaviour {
         dragging = false;
         Rigidbody rb = GetComponent<Rigidbody>();
         rb.useGravity = true;
-        rb.AddForce(25 * (rb.position - previousPos),ForceMode.VelocityChange);
+        //rb.AddForce(25 * (rb.position - previousPos) + new Vector3(0,0,2),ForceMode.VelocityChange);
+        // ideia do renan
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hitInfo;
+        bool hit = floorCollider.Raycast(ray, out hitInfo, 1000);
+        if (hit)
+        {
+            rb.AddForce(5*((hitInfo.point - rb.position).normalized) + new Vector3(0,0.5f,0), ForceMode.VelocityChange);
+            float torque = 20.0f;
+            rb.AddTorque(new Vector3(Random.Range(-torque,torque),Random.Range(-torque,torque),Random.Range(-torque,torque)));
+        }
+        // ideia do renan
         GetComponent<Item>().wasReleased = true;
         enabled = false;
     }
