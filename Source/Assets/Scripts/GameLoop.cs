@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameLoop : MonoBehaviour
 {
@@ -21,11 +22,15 @@ public class GameLoop : MonoBehaviour
     public Slider devilSlider;
     public Slider babeSlider;
 
-  [HideInInspector] public bool devilGenerateWord;
-  [HideInInspector] public bool babeGenerateWord;
+    public GameObject sign;
 
-//    public float devilMaxSlider;
-//    public float babeMaxSlider;
+    [HideInInspector]
+    public bool devilGenerateWord;
+    [HideInInspector]
+    public bool babeGenerateWord;
+
+    //    public float devilMaxSlider;
+    //    public float babeMaxSlider;
 
     public float matchPoint;
 
@@ -40,34 +45,36 @@ public class GameLoop : MonoBehaviour
     bool devilIsHappy = false;
     bool babeIsHappy = false;
 
-  public LevelDesign levelDesign;
+    public LevelDesign levelDesign;
 
     public BoxCollider tableCollider;
 
     // Use this for initialization
     void Start()
     {
-      levelDesign.LevelStage(this);
+        levelDesign.LevelStage(this);
 
-    if(!devilGenerateWord){
-      devilIsHappy = true;
-    }
-    if(!babeGenerateWord){
-      babeIsHappy = true;
-    }
+        if (!devilGenerateWord)
+        {
+            devilIsHappy = true;
+        }
+        if (!babeGenerateWord)
+        {
+            babeIsHappy = true;
+        }
 
-//        devilSlider.maxValue = devilMaxSlider;
-//        babeSlider.maxValue = babeMaxSlider;
-//
-//        if (!devilGenerateWord)
-//        {
-//            devilIsHappy = true;
-//            devilSlider.value = devilMaxSlider; 
-//        }else {
-//            devilSlider.value = 0.3f * devilMaxSlider;
-//        }
-//        
-//        babeSlider.value = 0.3f * babeMaxSlider;
+        //        devilSlider.maxValue = devilMaxSlider;
+        //        babeSlider.maxValue = babeMaxSlider;
+        //
+        //        if (!devilGenerateWord)
+        //        {
+        //            devilIsHappy = true;
+        //            devilSlider.value = devilMaxSlider; 
+        //        }else {
+        //            devilSlider.value = 0.3f * devilMaxSlider;
+        //        }
+        //        
+        //        babeSlider.value = 0.3f * babeMaxSlider;
 
         GenerateLevel();
     }
@@ -85,11 +92,11 @@ public class GameLoop : MonoBehaviour
         }
         if (devilIsHappy && babeIsHappy)
         {
-            Application.LoadLevel("Victory");
+            SceneManager.LoadScene("Victory"); // Victory
         }
         if (devilSlider.value <= 0 || babeSlider.value <= 0)
         {
-            Application.LoadLevel("GameOver");
+            SceneManager.LoadScene("GameOver"); // Game Over
         }
 
         if (devilGenerateWord)
@@ -115,7 +122,7 @@ public class GameLoop : MonoBehaviour
         }
         Item fi = finishers[Random.Range(0, finishers.Count)].GetComponent<Item>();
         word += fi.word;
-        
+
         StartCoroutine(SayWord(word, textToSet));
 
         return word;
@@ -125,8 +132,9 @@ public class GameLoop : MonoBehaviour
     {
         string[] words = whole_word.Split(' ');
         textToSet.enabled = true;
-        foreach(string w in words){
-            yield return new WaitForSeconds( soundManager.PlayWordSound(w)-0.4f );
+        foreach (string w in words)
+        {
+            yield return new WaitForSeconds(soundManager.PlayWordSound(w) - 0.4f);
         }
         yield return new WaitForSeconds(waitTimeAfterSayWord);
         textToSet.enabled = false;
@@ -174,18 +182,21 @@ public class GameLoop : MonoBehaviour
             float t = ((float)(i) / (float)(ingredientCount + finisherCount - 1));
             Vector3 p = new Vector3(Mathf.Lerp(-size / 2, size / 2, t), y, z + Random.Range(-0.1f, 0.1f));
             Debug.Log("t" + t);
+            GameObject prefab;
             if (i < ingredientCount)
             {
-                GameObject go = (GameObject)Instantiate(ingredients[i], p, ingredients[i].transform.rotation);
-                go.GetComponent<Item>().prefab = ingredients[i];
+                prefab = ingredients[i];
             }
             else
             {
-                GameObject go = (GameObject)Instantiate(finishers[i - ingredientCount], p, Quaternion.identity);
-                go.GetComponent<Item>().prefab = finishers[i - ingredientCount];
+                Debug.logger.Log("WAT");
+                prefab = finishers[i - ingredientCount];
             }
-
-
+            GameObject go = (GameObject)Instantiate(prefab, p, prefab.transform.rotation);
+            go.GetComponent<Item>().prefab = prefab;
+            go.transform.localScale = prefab.transform.localScale;
+            GameObject sgo = (GameObject)Instantiate(sign, p + new Vector3(0, 0, -0.6f), sign.transform.rotation);
+            sgo.GetComponentInChildren<TextMesh>().text = go.GetComponent<Item>().word;
         }
     }
 

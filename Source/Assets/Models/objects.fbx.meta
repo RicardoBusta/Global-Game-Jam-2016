@@ -16,6 +16,8 @@ ModelImporter:
     100016: Spider
     100018: Bottle
     100020: Bottle Goo
+    100022: Plane
+    100024: Sign
     400000: Camera
     400002: Chandelier
     400004: Cylinder
@@ -27,6 +29,8 @@ ModelImporter:
     400016: Spider
     400018: Bottle
     400020: Bottle Goo
+    400022: Plane
+    400024: Sign
     2300000: Chandelier
     2300002: Cylinder
     2300004: Cylinder.001
@@ -35,6 +39,8 @@ ModelImporter:
     2300010: Spider
     2300012: Bottle
     2300014: Bottle Goo
+    2300016: Plane
+    2300018: Sign
     3300000: Chandelier
     3300002: Cylinder
     3300004: Cylinder.001
@@ -43,6 +49,8 @@ ModelImporter:
     3300010: Spider
     3300012: Bottle
     3300014: Bottle Goo
+    3300016: Plane
+    3300018: Sign
     4300000: Cylinder.001
     4300002: Cylinder.002
     4300004: Cylinder
@@ -51,6 +59,8 @@ ModelImporter:
     4300010: Chandelier
     4300012: Bottle
     4300014: Bottle Goo
+    4300016: Plane
+    4300018: Sign
   materials:
     importMaterials: 1
     materialName: 0
