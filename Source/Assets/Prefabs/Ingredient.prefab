@@ -1,77 +1,49 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &109676
+--- !u!1 &175630
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 446132}
-  - 33: {fileID: 3388704}
-  - 23: {fileID: 2396750}
+  - 4: {fileID: 454272}
+  - 114: {fileID: 11493776}
+  - 114: {fileID: 11407170}
+  - 65: {fileID: 6560596}
+  - 33: {fileID: 3327036}
+  - 23: {fileID: 2347070}
+  - 54: {fileID: 5486024}
   m_Layer: 0
-  m_Name: Slime
+  m_Name: Ingredient
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &193174
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 493224}
-  - 114: {fileID: 11474890}
-  - 114: {fileID: 11432468}
-  - 54: {fileID: 5460016}
-  - 135: {fileID: 13546340}
-  m_Layer: 0
-  m_Name: BIRI
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &446132
+--- !u!4 &454272
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 109676}
+  m_GameObject: {fileID: 175630}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.015223, y: -0.019631, z: -0.081303}
-  m_LocalScale: {x: 35.149723, y: 35.149765, z: 35.149765}
+  m_LocalPosition: {x: -0.49740946, y: 3.5855684, z: -6.717923}
+  m_LocalScale: {x: 0.35113662, y: 0.3511366, z: 0.3511366}
   m_Children: []
-  m_Father: {fileID: 493224}
-  m_RootOrder: 0
---- !u!4 &493224
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 193174}
-  m_LocalRotation: {x: 0.0064383545, y: -0.6886788, z: -0.7247103, w: 0.021797009}
-  m_LocalPosition: {x: -2.0044184, y: 3.6756806, z: -6.606626}
-  m_LocalScale: {x: 0.47499388, y: 0.47499388, z: 0.47499388}
-  m_Children:
-  - {fileID: 446132}
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!23 &2396750
+--- !u!23 &2347070
 MeshRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 109676}
+  m_GameObject: {fileID: 175630}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: d01cef2cf6c473b4789d81282aecdae2, type: 2}
+  - {fileID: 0}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -87,19 +59,19 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
---- !u!33 &3388704
+--- !u!33 &3327036
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 109676}
-  m_Mesh: {fileID: 4300006, guid: 32a35a0d77eaba04993575ff3352de6c, type: 3}
---- !u!54 &5460016
+  m_GameObject: {fileID: 175630}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!54 &5486024
 Rigidbody:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 193174}
+  m_GameObject: {fileID: 175630}
   serializedVersion: 2
   m_Mass: 5
   m_Drag: 1
@@ -109,56 +81,64 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &11432468
+--- !u!65 &6560596
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 175630}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &11407170
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 193174}
+  m_GameObject: {fileID: 175630}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b62bd4ffa7f7dad49b57f9cf9339bdf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &11474890
+--- !u!114 &11493776
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 193174}
+  m_GameObject: {fileID: 175630}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9a7f41019454079478a60457dee8103f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  word: BIRI
-  finisher: 0
+  word: AZA
+  finisher: 1
   name: {fileID: 10251342, guid: 5087c98e90c490e4bbdde5cf2d766953, type: 2}
   placed: 0
   startPosition: {x: 0, y: 0, z: 0}
   prefab: {fileID: 0}
   wasReleased: 0
   acceptedItem: 0
---- !u!135 &13546340
-SphereCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 193174}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.33821097
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: m_Mass
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Drag
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 193174}
+  m_RootGameObject: {fileID: 175630}
   m_IsPrefabParent: 1

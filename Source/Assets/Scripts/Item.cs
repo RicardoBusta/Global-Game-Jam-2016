@@ -42,7 +42,7 @@ public class Item : MonoBehaviour {
     public IEnumerator WaitAndRespawn()
     {
         yield return new WaitForSeconds(0.5f);
-        GameObject go = (GameObject)Instantiate(prefab, startPosition, Quaternion.identity);
+        GameObject go = (GameObject)Instantiate(prefab, startPosition, prefab.transform.rotation);
         go.GetComponent<Item>().prefab = prefab;
     }
 }

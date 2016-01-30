@@ -165,7 +165,7 @@ public class GameLoop : MonoBehaviour
             Debug.Log("t" + t);
             if (i < ingredientCount)
             {
-                GameObject go = (GameObject)Instantiate(ingredients[i], p, Quaternion.identity);
+                GameObject go = (GameObject)Instantiate(ingredients[i], p, ingredients[i].transform.rotation);
                 go.GetComponent<Item>().prefab = ingredients[i];
             }
             else
