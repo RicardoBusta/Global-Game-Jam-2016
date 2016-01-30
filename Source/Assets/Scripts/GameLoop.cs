@@ -21,16 +21,16 @@ public class GameLoop : MonoBehaviour
     public Slider devilSlider;
     public Slider babeSlider;
 
-    public bool devilGenerateWord = true;
-    public bool babeGenerateWord = true;
+  [HideInInspector] public bool devilGenerateWord;
+  [HideInInspector] public bool babeGenerateWord;
 
-    public float devilMaxSlider = 100f;
-    public float babeMaxSlider = 100f;
+//    public float devilMaxSlider;
+//    public float babeMaxSlider;
 
-    public float matchPoint = 50;
+    public float matchPoint;
 
-    public int devilWordCount = 3;
-    public int babeWordCount = 3;
+    public int devilWordCount;
+    public int babeWordCount;
 
     public float waitTimeAfterSayWord = 1;
 
@@ -40,23 +40,34 @@ public class GameLoop : MonoBehaviour
     bool devilIsHappy = false;
     bool babeIsHappy = false;
 
+  public LevelDesign levelDesign;
+
     public BoxCollider tableCollider;
 
     // Use this for initialization
     void Start()
     {
-        devilSlider.maxValue = devilMaxSlider;
-        babeSlider.maxValue = babeMaxSlider;
+      levelDesign.LevelStage(this);
 
-        if (!devilGenerateWord)
-        {
-            devilIsHappy = true;
-            devilSlider.value = devilMaxSlider; 
-        }else {
-            devilSlider.value = 0.3f * devilMaxSlider; 
-        }
-        
-        babeSlider.value = 0.3f * babeMaxSlider;
+    if(!devilGenerateWord){
+      devilIsHappy = true;
+    }
+    if(!babeGenerateWord){
+      babeIsHappy = true;
+    }
+
+//        devilSlider.maxValue = devilMaxSlider;
+//        babeSlider.maxValue = babeMaxSlider;
+//
+//        if (!devilGenerateWord)
+//        {
+//            devilIsHappy = true;
+//            devilSlider.value = devilMaxSlider; 
+//        }else {
+//            devilSlider.value = 0.3f * devilMaxSlider;
+//        }
+//        
+//        babeSlider.value = 0.3f * babeMaxSlider;
 
         GenerateLevel();
     }
@@ -183,7 +194,7 @@ public class GameLoop : MonoBehaviour
         Debug.Log("Finished:" + value);
         if (!devilIsHappy && value == devilText.text)
         {
-            Debug.Log("Worked!");
+            Debug.Log("Worked! Devil is happy.");
             devilSlider.value += matchPoint;
             if (devilSlider.value >= devilSlider.maxValue)
             {
@@ -198,7 +209,7 @@ public class GameLoop : MonoBehaviour
         }
         if (!babeIsHappy && value == babeText.text)
         {
-            Debug.Log("Worked!");
+            Debug.Log("Worked! Babe is happy.");
             babeSlider.value += matchPoint;
             if (babeSlider.value >= babeSlider.maxValue)
             {
