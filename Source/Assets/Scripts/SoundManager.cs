@@ -24,8 +24,6 @@ public class SoundManager : MonoBehaviour {
 			Destroy(gameObject);
 
         sfxSource = GetComponents<AudioSource>();
-
-		DontDestroyOnLoad(gameObject);
 	}
 
 	public void PlaySfx(AudioClip clip){

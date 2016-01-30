@@ -7,6 +7,7 @@ TagManager:
   - Ingredient Collider
   - Sound Manager
   - Floor
+  - Persist State
   layers:
   - Default
   - TransparentFX

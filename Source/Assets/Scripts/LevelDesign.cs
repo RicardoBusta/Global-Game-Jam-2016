@@ -3,6 +3,8 @@ using System.Collections;
 
 public class LevelDesign : MonoBehaviour {
 
+  public GameLoop game;
+
 	// Use this for initialization
 	void Start () {
 	
@@ -13,19 +15,52 @@ public class LevelDesign : MonoBehaviour {
 	
 	}
 
-  public void LevelStage(GameLoop game){
-    game.babeGenerateWord = true;
-    game.babeWordCount = 2;
-//    game.babeMaxSlider = 30f;
-    game.babeSlider.maxValue = 30f;
-    game.babeSlider.value = 10f;
+  public void LevelStage(GameLoop myGame){
+    game = myGame;
 
+    game.babeGenerateWord = false;
     game.devilGenerateWord = false;
-    game.devilWordCount = 2;
-//    game.devilMaxSlider = 60f;
-    game.devilSlider.maxValue = 60f;
-    game.devilSlider.value = game.devilSlider.maxValue;
 
-    game.matchPoint = 10f; // 3-second cost
+    switch( PersistState.GetPersistState().stage ){
+    case 1:
+      SetBabeDifficulty(2, 30f, 10f);
+      game.matchPoint = 100f; // 3-second cost
+      break;
+    case 2:
+      SetBabeDifficulty(2, 30f, 10f);
+      SetDevilDifficulty(1, 60f, 20f);
+      game.matchPoint = 100f; // 3-second cost
+      break;
+    case 3:
+      SetBabeDifficulty(2, 30f, 10f);
+      SetDevilDifficulty(2, 60f, 20f);
+      game.matchPoint = 10f; // 3-second cost
+      break;
+    case 4:
+      SetBabeDifficulty(2, 30f, 10f);
+      SetDevilDifficulty(2, 60f, 20f);
+      game.matchPoint = 10f; // 3-second cost
+      break;
+    case 5:
+      SetBabeDifficulty(2, 30f, 10f);
+      SetDevilDifficulty(2, 60f, 20f);
+      game.matchPoint = 10f; // 3-second cost
+      break;
+    }
+      
+  }
+
+  public void SetBabeDifficulty(int words, float maxValue, float startValue){
+    game.babeGenerateWord = true;
+    game.babeWordCount = words;
+    game.babeSlider.maxValue = maxValue;
+    game.babeSlider.value = startValue;
+  }
+
+  public void SetDevilDifficulty(int words, float maxValue, float startValue){
+    game.devilGenerateWord = true;
+    game.devilWordCount = words;
+    game.devilSlider.maxValue = maxValue;
+    game.devilSlider.value = startValue;
   }
 }

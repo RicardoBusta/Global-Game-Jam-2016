@@ -57,10 +57,14 @@ public class GameLoop : MonoBehaviour
         if (!devilGenerateWord)
         {
             devilIsHappy = true;
+            devilSlider.value = devilSlider.maxValue;
+      devilSlider.gameObject.SetActive(false);
         }
         if (!babeGenerateWord)
         {
             babeIsHappy = true;
+            babeSlider.value = babeSlider.maxValue;
+      babeSlider.gameObject.SetActive(false);
         }
 
         //        devilSlider.maxValue = devilMaxSlider;
@@ -92,7 +96,7 @@ public class GameLoop : MonoBehaviour
         }
         if (devilIsHappy && babeIsHappy)
         {
-            SceneManager.LoadScene("Victory"); // Victory
+            SceneManager.LoadScene("Interlude"); // Victory
         }
         if (devilSlider.value <= 0 || babeSlider.value <= 0)
         {
