@@ -16,23 +16,18 @@ public class SummonCircleDetector : MonoBehaviour
         phrase.text = "";
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     void OnTriggerEnter(Collider other)
     {
         Item i = other.GetComponent<Item>();
         if (i != null)
         {
-            if (Vector3.Distance(i.transform.position, transform.position) > GetComponent<BoxCollider>().size.x / 2) return;
+            //if (Vector3.Distance(i.transform.position, transform.position) > GetComponent<BoxCollider>().size.x / 2) return;
             if (!i.placed)
             {
                 collidedItems.Add(i);
                 phrase.text += i.word;
-                i.DisableAndRespawn();
+                i.Disable();
+                i.acceptedItem = true;
                 if (i.finisher)
                 {
                     Debug.Log("Finisher!");

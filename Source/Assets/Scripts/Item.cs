@@ -9,6 +9,9 @@ public class Item : MonoBehaviour {
     public bool placed = false;
     public Vector3 startPosition;
     public GameObject prefab;
+    public bool wasReleased = false;
+    float lifeTime = 5.0f;
+    public bool acceptedItem = false;
 
 	// Use this for initialization
 	void Start () {
@@ -17,14 +20,29 @@ public class Item : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void FixedUpdate () {
+	void Update () {
+        if (wasReleased && !acceptedItem)
+        {
+            lifeTime -= Time.deltaTime;
+            if (lifeTime <= 0)
+            {
+                Destroy(gameObject);
+            }
+        }
 	}
 
-    public void DisableAndRespawn()
+    public void Disable()
     {
-        GameObject go = (GameObject)Instantiate(prefab, startPosition, Quaternion.identity);
-        go.GetComponent<Item>().prefab = prefab;
+        //GameObject go = (GameObject)Instantiate(prefab, startPosition, Quaternion.identity);
+        //go.GetComponent<Item>().prefab = prefab;
         placed = true;
         GetComponent<DragTransform>().enabled = false;        
+    }
+
+    public IEnumerator WaitAndRespawn()
+    {
+        yield return new WaitForSeconds(0.5f);
+        GameObject go = (GameObject)Instantiate(prefab, startPosition, Quaternion.identity);
+        go.GetComponent<Item>().prefab = prefab;
     }
 }

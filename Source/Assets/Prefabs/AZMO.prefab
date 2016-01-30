@@ -25,13 +25,13 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 224: {fileID: 22439850}
-  - 65: {fileID: 6572360}
   - 23: {fileID: 2389506}
   - 114: {fileID: 11487968}
   - 54: {fileID: 5426382}
   - 114: {fileID: 11465344}
   - 33: {fileID: 3373470}
   - 222: {fileID: 22258048}
+  - 136: {fileID: 13613538}
   m_Layer: 0
   m_Name: AZMO
   m_TagString: Untagged
@@ -105,7 +105,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 188358}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!54 &5426382
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -121,18 +121,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &6572360
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 188358}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!102 &10238030
 TextMesh:
   serializedVersion: 3
@@ -169,6 +157,8 @@ MonoBehaviour:
   finisher: 0
   name: {fileID: 10238030}
   placed: 0
+  startPosition: {x: 0, y: 0, z: 0}
+  prefab: {fileID: 0}
 --- !u!114 &11487968
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -180,6 +170,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b62bd4ffa7f7dad49b57f9cf9339bdf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!136 &13613538
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 188358}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: .5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!222 &22258048
 CanvasRenderer:
   m_ObjectHideFlags: 1

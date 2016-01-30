@@ -7,10 +7,12 @@ public class DragTransform : MonoBehaviour {
     private bool dragging = false;
     private float distance;
     Collider moveCollider;
+    Vector3 previousPos;
 
     void Start()
     {
         moveCollider = GameObject.FindWithTag("Ingredient Collider").GetComponent<Collider>();
+        previousPos = transform.position;
     }
 
     void OnMouseEnter()
@@ -27,21 +29,28 @@ public class DragTransform : MonoBehaviour {
 
     void OnMouseDown()
     {
+        if (!enabled) return;
         distance = Vector3.Distance(transform.position, Camera.main.transform.position);
         dragging = true;
         Rigidbody rb = GetComponent<Rigidbody>();
         rb.useGravity = false;
+        GetComponent<Item>().StartCoroutine(GetComponent<Item>().WaitAndRespawn());
     }
 
     void OnMouseUp()
     {
+        if (!enabled) return;
         dragging = false;
         Rigidbody rb = GetComponent<Rigidbody>();
         rb.useGravity = true;
+        rb.AddForce(25 * (rb.position - previousPos),ForceMode.VelocityChange);
+        GetComponent<Item>().wasReleased = true;
+        enabled = false;
     }
 
     void Update()
     {
+        if (!enabled) return;
         if (dragging)
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -53,7 +62,9 @@ public class DragTransform : MonoBehaviour {
             if (hit)
             {
                 Rigidbody rb = GetComponent<Rigidbody>();
+                previousPos = rb.position;
                 rb.MovePosition(Vector3.Lerp(hitInfo.point,rb.position,0.5f));
+               // rb.AddForce(Time.deltaTime*20*(hitInfo.point - rb.position), ForceMode.VelocityChange);
                 //transform.position = hitInfo.point;
             }
         }

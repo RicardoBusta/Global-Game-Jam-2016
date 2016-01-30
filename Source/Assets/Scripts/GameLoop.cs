@@ -24,6 +24,9 @@ public class GameLoop : MonoBehaviour
     public bool devilGenerateWord = true;
     public bool babeGenerateWord = true;
 
+    public float devilMaxSlider = 100f;
+    public float babeMaxSlider = 100f;
+
     public float matchPoint = 50;
 
     public int devilWordCount = 3;
@@ -42,18 +45,18 @@ public class GameLoop : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        devilSlider.maxValue = 100;
-        babeSlider.maxValue = 100;
+        devilSlider.maxValue = devilMaxSlider;
+        babeSlider.maxValue = babeMaxSlider;
 
         if (!devilGenerateWord)
         {
             devilIsHappy = true;
-            devilSlider.value = 100; 
+            devilSlider.value = devilMaxSlider; 
         }else {
-            devilSlider.value = 20; 
+            devilSlider.value = 0.3f * devilMaxSlider; 
         }
         
-        babeSlider.value = 20;
+        babeSlider.value = 0.3f * babeMaxSlider;
 
         GenerateLevel();
     }
@@ -71,7 +74,7 @@ public class GameLoop : MonoBehaviour
         }
         if (devilIsHappy && babeIsHappy)
         {
-            Application.LoadLevel("GameOver");
+            Application.LoadLevel("Victory");
         }
         if (devilSlider.value <= 0 || babeSlider.value <= 0)
         {
