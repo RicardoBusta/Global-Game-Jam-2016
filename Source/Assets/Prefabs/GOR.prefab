@@ -11,7 +11,7 @@ GameObject:
   - 114: {fileID: 11463694}
   - 114: {fileID: 11480262}
   - 54: {fileID: 5473960}
-  - 135: {fileID: 13544316}
+  - 136: {fileID: 13621826}
   m_Layer: 0
   m_Name: GOR
   m_TagString: Untagged
@@ -42,9 +42,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 164620}
-  m_LocalRotation: {x: -0.3477251, y: 0.33973897, z: 0.05628452, w: -0.8720647}
-  m_LocalPosition: {x: 0.058614314, y: 4.109, z: -6.6463346}
-  m_LocalScale: {x: 0.27863997, y: 0.27864, z: 0.27864}
+  m_LocalRotation: {x: -0.06084894, y: 0.696363, z: -0.54084295, w: -0.46783006}
+  m_LocalPosition: {x: -1.5730985, y: 3.802, z: -6.567742}
+  m_LocalScale: {x: 0.10538295, y: 0.10538296, z: 0.10538296}
   m_Children:
   - {fileID: 456108}
   m_Father: {fileID: 0}
@@ -57,7 +57,7 @@ Transform:
   m_GameObject: {fileID: 171480}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 3, z: 1}
   m_Children: []
   m_Father: {fileID: 449050}
   m_RootOrder: 0
@@ -139,8 +139,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b62bd4ffa7f7dad49b57f9cf9339bdf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!135 &13544316
-SphereCollider:
+--- !u!136 &13621826
+CapsuleCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -148,8 +148,9 @@ SphereCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.6848288
+  m_Radius: 0.72
+  m_Height: 4.29
+  m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &100100000
 Prefab:
