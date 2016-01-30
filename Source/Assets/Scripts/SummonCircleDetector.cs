@@ -27,12 +27,12 @@ public class SummonCircleDetector : MonoBehaviour
         Item i = other.GetComponent<Item>();
         if (i != null)
         {
+            if (Vector3.Distance(i.transform.position, transform.position) > GetComponent<BoxCollider>().size.x / 2) return;
             if (!i.placed)
             {
                 collidedItems.Add(i);
                 phrase.text += i.word;
-                i.placed = true;
-                i.GetComponent<DragTransform>().enabled = false;
+                i.DisableAndRespawn();
                 if (i.finisher)
                 {
                     Debug.Log("Finisher!");
@@ -43,6 +43,10 @@ public class SummonCircleDetector : MonoBehaviour
                         Destroy(ci.gameObject);
                     }
                     collidedItems.Clear();
+                }
+                else
+                {
+                    phrase.text += "-";
                 }
             }
         }
