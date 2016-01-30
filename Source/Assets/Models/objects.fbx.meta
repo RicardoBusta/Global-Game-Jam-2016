@@ -1,49 +1,46 @@
 fileFormatVersion: 2
-guid: 702d40ff4abd8104288335bfe3f91eb5
-timeCreated: 1454171707
+guid: 32a35a0d77eaba04993575ff3352de6c
+timeCreated: 1454177053
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
-    100000: Chandelier
-    100002: Cylinder
-    100004: Cylinder_001
-    100006: Cylinder_002
-    100008: Icosphere
-    100010: //RootNode
-    100012: Slime
-    100014: Spider
-    400000: Chandelier
-    400002: Cylinder
-    400004: Cylinder_001
-    400006: Cylinder_002
-    400008: Icosphere
-    400010: //RootNode
-    400012: Slime
-    400014: Spider
+    100000: Camera
+    100002: Chandelier
+    100004: Cylinder
+    100006: Cylinder.001
+    100008: Cylinder.002
+    100010: Hemi
+    100012: //RootNode
+    100014: Slime
+    100016: Spider
+    400000: Camera
+    400002: Chandelier
+    400004: Cylinder
+    400006: Cylinder.001
+    400008: Cylinder.002
+    400010: Hemi
+    400012: //RootNode
+    400014: Slime
+    400016: Spider
     2300000: Chandelier
     2300002: Cylinder
-    2300004: Cylinder_001
-    2300006: Cylinder_002
-    2300008: Icosphere
-    2300010: Slime
-    2300012: Spider
+    2300004: Cylinder.001
+    2300006: Cylinder.002
+    2300008: Slime
+    2300010: Spider
     3300000: Chandelier
     3300002: Cylinder
-    3300004: Cylinder_001
-    3300006: Cylinder_002
-    3300008: Icosphere
-    3300010: Slime
-    3300012: Spider
-    4300000: Icosphere
-    4300002: Cylinder_001
-    4300004: Cylinder_002
-    4300006: Cylinder
-    4300008: Slime
-    4300010: Spider
-    4300012: Chandelier
-    7400000: Default Take
-    9500000: //RootNode
+    3300004: Cylinder.001
+    3300006: Cylinder.002
+    3300008: Slime
+    3300010: Spider
+    4300000: Cylinder.001
+    4300002: Cylinder.002
+    4300004: Cylinder
+    4300006: Slime
+    4300008: Spider
+    4300010: Chandelier
   materials:
     importMaterials: 1
     materialName: 0
@@ -102,7 +99,7 @@ ModelImporter:
     rootMotionBoneName: 
     hasTranslationDoF: 0
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 0
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
