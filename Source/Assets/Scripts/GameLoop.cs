@@ -107,7 +107,11 @@ public class GameLoop : MonoBehaviour
         }
         if (devilIsHappy && babeIsHappy)
         {
-            SceneManager.LoadScene("Interlude"); // Victory
+      if(PersistState.GetPersistState().stage < LevelDesign.num_stages){  
+            SceneManager.LoadScene("Interlude"); // interlude
+          }else{
+            SceneManager.LoadScene("Victory"); // Victory
+          }
         }
         if (devilSlider.value <= 0 || babeSlider.value <= 0)
         {

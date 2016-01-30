@@ -5,8 +5,8 @@ public class PersistState : MonoBehaviour {
 
   private static PersistState state;
 
-  public int stage;
-  public int score;
+  [HideInInspector] public int stage;
+  [HideInInspector] public int score;
 
 
 	void Start () {
@@ -30,7 +30,7 @@ public class PersistState : MonoBehaviour {
   }
 
   void ResetGame(){
-    stage = 1;
+    stage = 6;
     score = 0;
   }
 	
