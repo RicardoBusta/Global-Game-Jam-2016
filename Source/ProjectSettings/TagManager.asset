@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ingredient Collider
   - Sound Manager
+  - Floor
   layers:
   - Default
   - TransparentFX
