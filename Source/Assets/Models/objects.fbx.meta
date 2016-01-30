@@ -14,6 +14,8 @@ ModelImporter:
     100012: //RootNode
     100014: Slime
     100016: Spider
+    100018: Bottle
+    100020: Bottle Goo
     400000: Camera
     400002: Chandelier
     400004: Cylinder
@@ -23,24 +25,32 @@ ModelImporter:
     400012: //RootNode
     400014: Slime
     400016: Spider
+    400018: Bottle
+    400020: Bottle Goo
     2300000: Chandelier
     2300002: Cylinder
     2300004: Cylinder.001
     2300006: Cylinder.002
     2300008: Slime
     2300010: Spider
+    2300012: Bottle
+    2300014: Bottle Goo
     3300000: Chandelier
     3300002: Cylinder
     3300004: Cylinder.001
     3300006: Cylinder.002
     3300008: Slime
     3300010: Spider
+    3300012: Bottle
+    3300014: Bottle Goo
     4300000: Cylinder.001
     4300002: Cylinder.002
     4300004: Cylinder
     4300006: Slime
     4300008: Spider
     4300010: Chandelier
+    4300012: Bottle
+    4300014: Bottle Goo
   materials:
     importMaterials: 1
     materialName: 0
