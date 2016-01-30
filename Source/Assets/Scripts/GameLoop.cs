@@ -19,6 +19,9 @@ public class GameLoop : MonoBehaviour
     public Text devilText;
     public Text babeText;
 
+    public GameObject devilBalloon;
+    public GameObject babeBalloon;
+
     public Slider devilSlider;
     public Slider babeSlider;
 
@@ -63,6 +66,9 @@ public class GameLoop : MonoBehaviour
             babeIsHappy = true;
         }
 
+        devilBalloon.SetActive(false);
+        babeBalloon.SetActive(false);
+
         //        devilSlider.maxValue = devilMaxSlider;
         //        babeSlider.maxValue = babeMaxSlider;
         //
@@ -101,17 +107,17 @@ public class GameLoop : MonoBehaviour
 
         if (devilGenerateWord)
         {
-            devilText.text = GenerateWord(devilWordCount, devilText);
+            devilText.text = GenerateWord(devilWordCount, devilBalloon);
             devilGenerateWord = false;
         }
         if (babeGenerateWord)
         {
-            babeText.text = GenerateWord(babeWordCount, babeText);
+            babeText.text = GenerateWord(babeWordCount, babeBalloon);
             babeGenerateWord = false;
         }
     }
 
-    string GenerateWord(int size, Text textToSet)
+    string GenerateWord(int size, GameObject textToSet)
     {
         string word = "";
         for (int i = 0; i < size; i++)
@@ -128,16 +134,16 @@ public class GameLoop : MonoBehaviour
         return word;
     }
 
-    public IEnumerator SayWord(string whole_word, Text textToSet)
+    public IEnumerator SayWord(string whole_word, GameObject textToSet)
     {
         string[] words = whole_word.Split(' ');
-        textToSet.enabled = true;
+        textToSet.SetActive(true);
         foreach (string w in words)
         {
             yield return new WaitForSeconds(soundManager.PlayWordSound(w) - 0.4f);
         }
         yield return new WaitForSeconds(waitTimeAfterSayWord);
-        textToSet.enabled = false;
+        textToSet.SetActive(false);
     }
 
     void Shuffle(List<int> list)
@@ -214,7 +220,7 @@ public class GameLoop : MonoBehaviour
             }
             else
             {
-                devilText.text = GenerateWord(devilWordCount, devilText);
+                devilText.text = GenerateWord(devilWordCount, devilBalloon);
             }
             return;
         }
@@ -229,7 +235,7 @@ public class GameLoop : MonoBehaviour
             }
             else
             {
-                babeText.text = GenerateWord(babeWordCount, babeText);
+                babeText.text = GenerateWord(babeWordCount, babeBalloon);
             }
             return;
         }

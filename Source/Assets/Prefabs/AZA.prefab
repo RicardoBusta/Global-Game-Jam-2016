@@ -27,8 +27,9 @@ GameObject:
   - 4: {fileID: 488848}
   - 114: {fileID: 11446856}
   - 114: {fileID: 11466976}
-  - 54: {fileID: 5481902}
   - 64: {fileID: 6455834}
+  - 137: {fileID: 13783802}
+  - 54: {fileID: 5423244}
   m_Layer: 0
   m_Name: AZA
   m_TagString: Untagged
@@ -55,7 +56,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 187580}
   m_LocalRotation: {x: 0.683012, y: -0.18301263, z: 0.18301225, w: 0.68301356}
-  m_LocalPosition: {x: -1.6304036, y: 3.512955, z: -6.726512}
+  m_LocalPosition: {x: -1.8906721, y: 3.512955, z: -6.8347774}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 405928}
@@ -71,7 +72,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: e19dbf7c6e5219e4ba50a06df06fcb04, type: 2}
+  - {fileID: 2100000, guid: be7190748754e7a4caec69bacff8a764, type: 2}
   - {fileID: 2100000, guid: d9b7e9a1d9494cf44998815b11ddc709, type: 2}
   - {fileID: 2100000, guid: f640a056d13b47a4cbc7e6fa22bed6ff, type: 2}
   - {fileID: 2100000, guid: 9ed586feb6243ac42bed1382e8a05e31, type: 2}
@@ -98,7 +99,7 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 110496}
   m_Mesh: {fileID: 4300002, guid: 2fb10d649f9f64a4984c89343c8bacd6, type: 3}
---- !u!54 &5481902
+--- !u!54 &5423244
 Rigidbody:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -155,6 +156,43 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b62bd4ffa7f7dad49b57f9cf9339bdf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!137 &13783802
+SkinnedMeshRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 187580}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_Materials:
+  - {fileID: 0}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 1
+  m_ReflectionProbeUsage: 1
+  m_ProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  serializedVersion: 2
+  m_Quality: 0
+  m_UpdateWhenOffscreen: 0
+  m_Mesh: {fileID: 0}
+  m_Bones: []
+  m_BlendShapeWeights: []
+  m_RootBone: {fileID: 0}
+  m_AABB:
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 0, y: 0, z: 0}
+  m_DirtyAABB: 1
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -169,6 +207,14 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: finisher
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Mass
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Drag
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
