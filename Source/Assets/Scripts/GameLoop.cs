@@ -39,8 +39,8 @@ public class GameLoop : MonoBehaviour
 
     public float waitTimeAfterSayWord = 1;
 
-    int ingredientCount = 3;
-    int finisherCount = 2;
+    public int ingredientCount;
+    public int finisherCount;
 
     bool devilIsHappy = false;
     bool babeIsHappy = false;
@@ -175,7 +175,7 @@ public class GameLoop : MonoBehaviour
         }
 
         float size = (ingredientCount + finisherCount) * 0.5f;
-        float y = tableCollider.transform.position.y + tableCollider.size.y / 2 + 0.15f;
+        float y = tableCollider.transform.position.y + tableCollider.size.y / 2 + 0.25f;
         float z = tableCollider.transform.position.z;
         for (int i = 0; i < ingredientCount + finisherCount; i++)
         {

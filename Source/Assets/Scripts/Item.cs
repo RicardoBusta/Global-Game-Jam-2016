@@ -15,7 +15,6 @@ public class Item : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        name.text = word;
         startPosition = transform.position;
 	}
 	
