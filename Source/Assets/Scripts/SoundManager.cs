@@ -3,7 +3,7 @@ using System.Collections;
 
 public class SoundManager : MonoBehaviour {
 
-	private AudioSource[] sfxSource;
+  private AudioSource[] sfxSources = null;
 	public AudioClip[] words;
 
 	public AudioClip[] confirmSound;
@@ -19,15 +19,13 @@ public class SoundManager : MonoBehaviour {
 	public float highPitchRange = 1.05f;
 
 
-	void Start () {
+  void Start () {
     if(instance == null){
       instance = this;
       DontDestroyOnLoad(gameObject);
     }else if(instance!=this){
 			Destroy(gameObject);
     }
-
-    sfxSource = GetComponents<AudioSource>();
 	}
 
   public static SoundManager GetInstance(){
@@ -42,7 +40,11 @@ public class SoundManager : MonoBehaviour {
   }
 
 	public void PlaySfx(AudioClip clip){
-		foreach( AudioSource audio in sfxSource ){
+    if(sfxSources == null){
+      sfxSources = GetComponents<AudioSource>();
+    }
+
+		foreach( AudioSource audio in sfxSources ){
  			if( !audio.isPlaying ){
 				audio.pitch = 1f;
 				audio.clip = clip;
@@ -55,7 +57,7 @@ public class SoundManager : MonoBehaviour {
 	public void PlayRandomPitchSfx(AudioClip clip){
 		float randomPitch = Random.Range(lowPitchRange, highPitchRange);
 		
-		foreach( AudioSource audio in sfxSource ){
+		foreach( AudioSource audio in sfxSources ){
 			if( !audio.isPlaying ){
 				audio.pitch = randomPitch;
 				audio.clip = clip;
