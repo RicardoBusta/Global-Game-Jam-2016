@@ -21,7 +21,7 @@ public class LevelDesign : MonoBehaviour {
       game.finisherCount = 1;
       break;
     case 2:
-      SetBabeDifficulty(2, 30f, 8f);
+      SetBabeDifficulty(2, 32f, 10f);
       game.matchPoint = 12f; // 2-second cost
 
       game.ingredientCount = 3;

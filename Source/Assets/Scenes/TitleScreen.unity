@@ -587,7 +587,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 8216974, guid: cf6ca01a33682944f9e7cff60107d6cb, type: 2}
       propertyPath: m_Volume
-      value: 0.5
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 8216974, guid: cf6ca01a33682944f9e7cff60107d6cb, type: 2}
       propertyPath: rolloffMode
@@ -595,7 +595,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 8247070, guid: cf6ca01a33682944f9e7cff60107d6cb, type: 2}
       propertyPath: m_Volume
-      value: 0.5
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 8247070, guid: cf6ca01a33682944f9e7cff60107d6cb, type: 2}
       propertyPath: rolloffMode

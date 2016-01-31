@@ -89,7 +89,18 @@ public class SoundManager : MonoBehaviour {
       }
     }
     return 0;
-	}
+  }
+
+  public float PlayBabeWordSound(string word){
+    foreach(AudioClip ac in wordsBabe){
+      if (ac.name.ToLower() == word.ToLower()){
+        //                Debug.Log("found the word: "+word);
+        PlaySfx( ac );
+        return ac.length;
+      }
+    }
+    return 0;
+  }
 
 
   public float PlayItemGetSound(string word){

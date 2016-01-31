@@ -186,7 +186,7 @@ public class GameLoop : MonoBehaviour
     }
     else
     {
-      SceneManager.LoadScene("Victory"); // Victory
+      SceneManager.LoadScene("Marriage"); // Victory
     }
   }
 
