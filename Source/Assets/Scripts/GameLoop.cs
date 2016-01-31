@@ -26,6 +26,9 @@ public class GameLoop : MonoBehaviour
   public GameObject devilObject;
   public GameObject babeObject;
 
+  public GameObject devilLike;
+  public GameObject babeLike;
+
   public GameObject sign;
 
   public Transform fireworksLocation;
@@ -70,6 +73,9 @@ public class GameLoop : MonoBehaviour
   void Start()
   {
     levelDesign.LevelStage(this);
+
+    babeLike.SetActive(false);
+    devilLike.SetActive(false);
 
     if (!devilGenerateWord)
     {
@@ -276,6 +282,7 @@ public class GameLoop : MonoBehaviour
       {
         devilText.text = "I am very happy!";
         devilIsHappy = true;
+        devilLike.SetActive(true);
       }
       else
       {
@@ -291,6 +298,7 @@ public class GameLoop : MonoBehaviour
       {
         babeText.text = "Oh yea, honey!";
         babeIsHappy = true;
+        babeLike.SetActive(true);
       }
       else
       {
