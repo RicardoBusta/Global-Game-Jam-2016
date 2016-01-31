@@ -12,6 +12,7 @@ public class Item : MonoBehaviour {
     float lifeTime = 5.0f;
     public bool acceptedItem = false;
     public GameObject vanishAnimation;
+    public bool userDragged = false;
 
 	// Use this for initialization
 	void Start () {
@@ -26,6 +27,7 @@ public class Item : MonoBehaviour {
             if (lifeTime <= 0)
             {
                 StartCoroutine(FadeAnimation());
+                Destroy(gameObject);
             }
         }
 	}
@@ -38,16 +40,20 @@ public class Item : MonoBehaviour {
         GetComponent<DragTransform>().enabled = false;        
     }
 
-    public IEnumerator WaitAndRespawn()
+    public void Respawn()
     {
-        yield return new WaitForSeconds(0.5f);
         GameObject go = (GameObject)Instantiate(prefab, startPosition, prefab.transform.rotation);
         go.GetComponent<Item>().prefab = prefab;
     }
 
+    public IEnumerator WaitAndRespawn()
+    {
+        yield return new WaitForSeconds(0.5f);
+        Respawn();
+    }
+
     public IEnumerator FadeAnimation()
     {
-        Destroy(gameObject);
         GameObject animation = (GameObject)Instantiate(vanishAnimation, transform.position, Quaternion.identity);
         yield return new WaitForSeconds(2);
         Destroy(animation);

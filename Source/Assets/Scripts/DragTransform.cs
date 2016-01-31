@@ -36,7 +36,9 @@ public class DragTransform : MonoBehaviour {
         dragging = true;
         Rigidbody rb = GetComponent<Rigidbody>();
         rb.useGravity = false;
-        GetComponent<Item>().StartCoroutine(GetComponent<Item>().WaitAndRespawn());
+        Item i = GetComponent<Item>();
+        i.StartCoroutine(i.WaitAndRespawn());
+        i.userDragged = true;
     }
 
     void OnMouseUp()

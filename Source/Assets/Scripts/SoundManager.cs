@@ -5,6 +5,7 @@ public class SoundManager : MonoBehaviour {
 
   private AudioSource[] sfxSources = null;
 	public AudioClip[] words;
+    public AudioClip[] wordsBabe;
 
 	public AudioClip[] confirmSound;
 	public AudioClip[] bigConfirmSound;
