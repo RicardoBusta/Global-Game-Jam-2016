@@ -64,7 +64,7 @@ public class GameLoop : MonoBehaviour
 
   public BoxCollider tableCollider;
 
-  int sayCounter = 0;
+  int[] sayCounter = new int[] {0,0};
 
   // Use this for initialization
   void Start()
@@ -138,12 +138,18 @@ public class GameLoop : MonoBehaviour
 
     if (devilGenerateWord)
     {
+      sayCounter[0]++;
       devilText.text = GenerateWord(devilWordCount, devilBalloon);
+      StartCoroutine(SayWord(devilText.text,0, devilBalloon));
+      //StartCoroutine(RepeatWord(devilText.text, 0, devilBalloon));
       devilGenerateWord = false;
     }
     if (babeGenerateWord)
     {
+      sayCounter[1]++;
       babeText.text = GenerateWord(babeWordCount, babeBalloon);
+      StartCoroutine(SayWord(babeText.text,1, babeBalloon));
+      //StartCoroutine(RepeatWord(babeText.text, 1, babeBalloon));
       babeGenerateWord = false;
     }
   }
@@ -160,8 +166,7 @@ public class GameLoop : MonoBehaviour
     Item fi = finishers[Random.Range(0, finishers.Count)].GetComponent<Item>();
     word += fi.word;
 
-    StopCoroutine(SayWord(word, textToSet));
-    StartCoroutine(SayWord(word, textToSet));
+    //StopCoroutine(SayWord(word, textToSet));
 
     return word;
   }
@@ -185,20 +190,23 @@ public class GameLoop : MonoBehaviour
     }
   }
 
-  public IEnumerator SayWord(string whole_word, GameObject textToSet)
+  public IEnumerator SayWord(string whole_word, int index, GameObject textToSet)
   {
-    sayCounter++;
-    int thisCounter = sayCounter;
-    string[] words = whole_word.Split(' ');
-    textToSet.SetActive(true);
-    foreach (string w in words)
+    int thisCounter = sayCounter[index];
+    while (thisCounter == sayCounter[index])
     {
-      yield return new WaitForSeconds(SoundManager.GetInstance().PlayDevilWordSound(w) - 0.4f);
-    }
-    yield return new WaitForSeconds(waitTimeAfterSayWord);
-    if (thisCounter == sayCounter)
-    {
-      textToSet.SetActive(false);
+      string[] words = whole_word.Split(' ');
+      textToSet.SetActive(true);
+      foreach (string w in words)
+      {
+        yield return new WaitForSeconds(SoundManager.GetInstance().PlayDevilWordSound(w) - 0.4f);
+      }
+      yield return new WaitForSeconds(waitTimeAfterSayWord);
+      if (thisCounter == sayCounter[index])
+      {
+        textToSet.SetActive(false);
+      }
+      yield return new WaitForSeconds(3);
     }
   }
 
@@ -271,7 +279,7 @@ public class GameLoop : MonoBehaviour
       }
       else
       {
-        devilText.text = GenerateWord(devilWordCount, devilBalloon);
+        devilGenerateWord = true;
       }
       return true;
     }
@@ -286,7 +294,7 @@ public class GameLoop : MonoBehaviour
       }
       else
       {
-        babeText.text = GenerateWord(babeWordCount, babeBalloon);
+        babeGenerateWord = true;
       }
       return true;
     }
