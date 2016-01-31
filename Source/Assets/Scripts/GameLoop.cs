@@ -205,7 +205,7 @@ public class GameLoop : MonoBehaviour
             finishers.Add(finishersPrefabs[sort[i]]);
             allItems.Add(finishersPrefabs[sort[i]]);
         }
-        Shuffle<GameObject>(allItems);
+        //Shuffle<GameObject>(allItems);
         float size = (ingredientCount + finisherCount) * 0.5f;
         float y = tableCollider.transform.position.y + tableCollider.size.y / 2 + 0.25f;
         float z = tableCollider.transform.position.z;
