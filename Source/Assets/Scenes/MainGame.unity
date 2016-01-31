@@ -6136,6 +6136,9 @@ MonoBehaviour:
   devilObject: {fileID: 1028137638}
   babeObject: {fileID: 97188950}
   sign: {fileID: 114464, guid: d43b808139ab8644599f3bdb06501d92, type: 2}
+  fireworksLocation: {fileID: 76314943}
+  fireworkPrefab: {fileID: 126986, guid: 584269abf2c6f444393a747d7ba67a12, type: 2}
+  celebrated: 0
   devilGenerateWord: 0
   babeGenerateWord: 1
   matchPoint: 50
@@ -12527,7 +12530,7 @@ Transform:
   - {fileID: 1322059228}
   - {fileID: 141175334}
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 17
 --- !u!1001 &831712229
 Prefab:
   m_ObjectHideFlags: 0
