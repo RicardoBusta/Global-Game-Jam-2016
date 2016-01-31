@@ -28,6 +28,10 @@ public class GameLoop : MonoBehaviour
 
     public GameObject sign;
 
+    public Transform fireworksLocation;
+
+    public GameObject fireworkPrefab;
+
     [HideInInspector]
     public bool devilGenerateWord;
     [HideInInspector]
@@ -36,19 +40,19 @@ public class GameLoop : MonoBehaviour
     //    public float devilMaxSlider;
     //    public float babeMaxSlider;
 
-  [HideInInspector]
+    [HideInInspector]
     public float matchPoint;
 
-  [HideInInspector]
+    [HideInInspector]
     public int devilWordCount;
-  [HideInInspector]
+    [HideInInspector]
     public int babeWordCount;
 
     public float waitTimeAfterSayWord = 1;
 
-  [HideInInspector]
+    [HideInInspector]
     public int ingredientCount;
-  [HideInInspector]
+    [HideInInspector]
     public int finisherCount;
 
     bool devilIsHappy = false;
@@ -97,8 +101,8 @@ public class GameLoop : MonoBehaviour
         //        babeSlider.value = 0.3f * babeMaxSlider;
 
         GenerateLevel();
-    if( PersistState.GetPersistState().stage ==1 )
-      SoundManager.GetInstance().loopPlayer.StartPlaying();
+        if (PersistState.GetPersistState().stage == 1)
+            SoundManager.GetInstance().loopPlayer.StartPlaying();
     }
 
     // Update is called once per frame
@@ -114,11 +118,15 @@ public class GameLoop : MonoBehaviour
         }
         if (devilIsHappy && babeIsHappy)
         {
-      if(PersistState.GetPersistState().stage < LevelDesign.num_stages){  
-            SceneManager.LoadScene("Interlude"); // interlude
-          }else{
-            SceneManager.LoadScene("Victory"); // Victory
-          }
+            StartCoroutine(FinishCelebration());
+            if (PersistState.GetPersistState().stage < LevelDesign.num_stages)
+            {
+                SceneManager.LoadScene("Interlude"); // interlude
+            }
+            else
+            {
+                SceneManager.LoadScene("Victory"); // Victory
+            }
         }
         if (devilSlider.value <= 0 || babeSlider.value <= 0)
         {
@@ -154,13 +162,20 @@ public class GameLoop : MonoBehaviour
         return word;
     }
 
+    public IEnumerator FinishCelebration()
+    {
+        GameObject firework = (GameObject)Instantiate(fireworkPrefab, fireworksLocation.position, Quaternion.identity);
+        yield return new WaitForSeconds(2);
+        Destroy(firework);
+    }
+
     public IEnumerator SayWord(string whole_word, GameObject textToSet)
     {
         string[] words = whole_word.Split(' ');
         textToSet.SetActive(true);
         foreach (string w in words)
         {
-          yield return new WaitForSeconds(SoundManager.GetInstance().PlayDevilWordSound(w) - 0.4f);
+            yield return new WaitForSeconds(SoundManager.GetInstance().PlayDevilWordSound(w) - 0.4f);
         }
         yield return new WaitForSeconds(waitTimeAfterSayWord);
         textToSet.SetActive(false);
