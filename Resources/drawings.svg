@@ -26,9 +26,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.49497475"
-     inkscape:cx="-622.06548"
-     inkscape:cy="340.996"
+     inkscape:zoom="1.979899"
+     inkscape:cx="-1521.1458"
+     inkscape:cy="538.09506"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -7062,5 +7062,11 @@ xTEJEAAAAABJRU5ErkJggg==
          id="tspan4234"
          x="-279.02789"
          y="993.03711">SHABLAU</tspan></text>
+    <path
+       style="fill:#800000;fill-opacity:1;stroke:none;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m -1716.25,446.27148 c -37.3783,2.9e-4 -67.6794,30.30135 -67.6797,67.67969 3e-4,37.37834 30.3014,67.6794 67.6797,67.67969 11.5271,-0.51667 17.4942,-2.7672 23.0517,-5.80396 74.8949,-66.85598 -70.5339,-77.9493 -16.9872,-129.25268 -2.016,-0.19159 -4.0395,-0.2926 -6.0645,-0.30274 z"
+       id="path4244"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cccccc" />
   </g>
 </svg>
