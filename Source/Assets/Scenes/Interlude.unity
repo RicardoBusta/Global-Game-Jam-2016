@@ -572,6 +572,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6630940f5a209704aa78c27322b01b84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interludeText: {fileID: 1751343013}
 --- !u!1 &1751343012
 GameObject:
   m_ObjectHideFlags: 0
@@ -601,7 +602,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.11764705, b: 0.11764705, a: 1}
+  m_Color: {r: 0.91372555, g: 0.18823531, b: 0.18823531, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:

@@ -14,8 +14,6 @@ public class GameLoop : MonoBehaviour
     public List<GameObject> finishers;
 
     [Header("References")]
-    public SoundManager soundManager;
-
     public Text devilText;
     public Text babeText;
 
@@ -92,6 +90,8 @@ public class GameLoop : MonoBehaviour
         //        babeSlider.value = 0.3f * babeMaxSlider;
 
         GenerateLevel();
+    if( PersistState.GetPersistState().stage ==1 )
+      SoundManager.GetInstance().loopPlayer.StartPlaying();
     }
 
     // Update is called once per frame
@@ -153,7 +153,7 @@ public class GameLoop : MonoBehaviour
         textToSet.SetActive(true);
         foreach (string w in words)
         {
-            yield return new WaitForSeconds(soundManager.PlayWordSound(w) - 0.4f);
+      yield return new WaitForSeconds(SoundManager.GetInstance().PlayWordSound(w) - 0.4f);
         }
         yield return new WaitForSeconds(waitTimeAfterSayWord);
         textToSet.SetActive(false);
@@ -202,7 +202,6 @@ public class GameLoop : MonoBehaviour
         {
             float t = ((float)(i) / (float)(ingredientCount + finisherCount - 1));
             Vector3 p = new Vector3(Mathf.Lerp(-size / 2, size / 2, t), y, z + Random.Range(-0.1f, 0.1f));
-            Debug.Log("t" + t);
             GameObject prefab;
             if (i < ingredientCount)
             {
@@ -210,7 +209,6 @@ public class GameLoop : MonoBehaviour
             }
             else
             {
-                Debug.logger.Log("WAT");
                 prefab = finishers[i - ingredientCount];
             }
             GameObject go = (GameObject)Instantiate(prefab, p, prefab.transform.rotation);

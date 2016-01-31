@@ -23,7 +23,7 @@ public class LevelDesign : MonoBehaviour {
     switch( PersistState.GetPersistState().stage ){
     case 1:
       SetBabeDifficulty(1, 30f, 8f);
-      game.matchPoint = 15f; // 2-second cost
+      game.matchPoint = 12f; // 2-second cost
 
       game.ingredientCount = 3;
       game.finisherCount = 1;
