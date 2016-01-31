@@ -228,7 +228,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: fed0745f008f1a54c8c24a2bf63caf76, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.4
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -450,7 +450,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: b4396ae892884df47ab9ca78d7862660, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.4
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -986,7 +986,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: d30d14d2898da1f4fa5551b0670f17cb, type: 3}
   - {fileID: 8300000, guid: 6d6b35e3c817ca548b151d744344d28d, type: 3}
   - {fileID: 8300000, guid: 8b408624f671b2c4998eed1335fbed25, type: 3}
-  - {fileID: 8300000, guid: 58f8d505f17ee6e40889198dc51292c2, type: 3}
   - {fileID: 8300000, guid: 851c917688db49c4ab6a8bf47bc4d7a0, type: 3}
   - {fileID: 8300000, guid: 675aaf68246aa934e84220dc4791b1d6, type: 3}
   - {fileID: 8300000, guid: ed66d5e887a7a6946afecc80ecddd3c7, type: 3}
@@ -1001,7 +1000,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: bfe1f5753728dd04ea91b38262fe4ce8, type: 3}
   - {fileID: 8300000, guid: e642cb751c36c9c45aefa67776a4a73d, type: 3}
   - {fileID: 8300000, guid: 96c213a63d0dc324b92987cdcd783783, type: 3}
-  - {fileID: 8300000, guid: 1cee8d6762bf1cf478c1cb3cc96a99b4, type: 3}
   - {fileID: 8300000, guid: ff694558ec50af248ac89a557e7944ad, type: 3}
   - {fileID: 8300000, guid: 39f18c19d6f560b4b93062fceae3bf02, type: 3}
   - {fileID: 8300000, guid: 969b2e6b83a571e46869ff4e8612bd68, type: 3}
