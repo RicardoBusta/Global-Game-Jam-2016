@@ -12,6 +12,7 @@ public class Breath : MonoBehaviour {
   void Start()
   {
     originalScale = transform.localScale;
+    angle = Random.Range(0, Mathf.PI);
   }
 
 	void Update () {
