@@ -42,7 +42,7 @@ public class SoundManager : MonoBehaviour {
     }
   }
 
-	public void PlaySfx(AudioClip clip){
+  public void PlaySfx(AudioClip clip, float volume){
     if(sfxSources == null){
       sfxSources = GetComponents<AudioSource>();
     }
@@ -72,7 +72,7 @@ public class SoundManager : MonoBehaviour {
 
 	public void RandomizeSfx(AudioClip[] clips){
 		int randomIndex = Random.Range(0, clips.Length);
-		PlaySfx( clips[randomIndex] );
+		PlaySfx( clips[randomIndex], 1.0f );
 	}
 	
 	public void RandomPitchedSfx(AudioClip[] clips){
@@ -86,7 +86,7 @@ public class SoundManager : MonoBehaviour {
 		foreach(AudioClip ac in wordsDevil){
       if (ac.name.ToLower() == word.ToLower()){
 //                Debug.Log("found the word: "+word);
-        PlaySfx( ac );
+        PlaySfx( ac, 1.0f );
         return ac.length;
       }
     }
@@ -100,7 +100,7 @@ public class SoundManager : MonoBehaviour {
     foreach(AudioClip ac in wordsBabe){
       if (ac.name == word ){
         //                Debug.Log("found the word: "+word);
-        PlaySfx( ac );
+        PlaySfx( ac, 0.8f );
         return ac.length;
       }
     }
@@ -116,7 +116,7 @@ public class SoundManager : MonoBehaviour {
     foreach(AudioClip ac in itensGet){
       if (ac.name == word ){
 //        Debug.Log("found the word: "+word );
-        PlaySfx( ac );
+        PlaySfx( ac, 1.0f );
         return ac.length;
       }
     }
@@ -132,7 +132,7 @@ public class SoundManager : MonoBehaviour {
     foreach(AudioClip ac in itensFall){
       if (ac.name == word ){
         //        Debug.Log("found the word: "+word);
-        PlaySfx( ac );
+        PlaySfx( ac, 1.0f );
         return ac.length;
       }
     }
