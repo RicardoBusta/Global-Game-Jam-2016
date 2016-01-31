@@ -166,12 +166,12 @@ public class GameLoop : MonoBehaviour
         textToSet.SetActive(false);
     }
 
-    void Shuffle(List<int> list)
+    void Shuffle<T>(List<T> list)
     {
         for (int i = 0; i < list.Count; i++)
         {
             int t = Random.Range(i, list.Count);
-            int temp = list[i];
+            T temp = list[i];
             list[i] = list[t];
             list[t] = temp;
         }
@@ -180,15 +180,18 @@ public class GameLoop : MonoBehaviour
     void GenerateLevel()
     {
         List<int> sort = new List<int>();
+        List<GameObject> allItems = new List<GameObject>();
+
         for (int i = 0; i < ingredientsPrefabs.Count; i++)
         {
             sort.Add(i);
         }
 
-        Shuffle(sort);
+        Shuffle<int>(sort);
         for (int i = 0; i < ingredientCount; i++)
         {
             ingredients.Add(ingredientsPrefabs[sort[i]]);
+            allItems.Add(ingredientsPrefabs[sort[i]]);
         }
         sort.Clear();
         for (int i = 0; i < finishersPrefabs.Count; i++)
@@ -196,31 +199,23 @@ public class GameLoop : MonoBehaviour
             sort.Add(i);
         }
 
-        Shuffle(sort);
+        Shuffle<int>(sort);
         for (int i = 0; i < finisherCount; i++)
         {
             finishers.Add(finishersPrefabs[sort[i]]);
+            allItems.Add(finishersPrefabs[sort[i]]);
         }
-
+        Shuffle<GameObject>(allItems);
         float size = (ingredientCount + finisherCount) * 0.5f;
         float y = tableCollider.transform.position.y + tableCollider.size.y / 2 + 0.25f;
         float z = tableCollider.transform.position.z;
-        for (int i = 0; i < ingredientCount + finisherCount; i++)
+        for (int i = 0; i < allItems.Count; i++)
         {
             float t = ((float)(i) / (float)(ingredientCount + finisherCount - 1));
             Vector3 p = new Vector3(Mathf.Lerp(-size / 2, size / 2, t), y, z + Random.Range(-0.1f, 0.1f));
-            GameObject prefab;
-            if (i < ingredientCount)
-            {
-                prefab = ingredients[i];
-            }
-            else
-            {
-                prefab = finishers[i - ingredientCount];
-            }
-            GameObject go = (GameObject)Instantiate(prefab, p, prefab.transform.rotation);
-            go.GetComponent<Item>().prefab = prefab;
-            go.transform.localScale = prefab.transform.localScale;
+            GameObject go = (GameObject)Instantiate(allItems[i], p, allItems[i].transform.rotation);
+            go.GetComponent<Item>().prefab = allItems[i];
+            go.transform.localScale = allItems[i].transform.localScale;
             GameObject sgo = (GameObject)Instantiate(sign, p + new Vector3(0, 0, -0.6f), sign.transform.rotation);
             sgo.GetComponentInChildren<TextMesh>().text = go.GetComponent<Item>().word;
         }
