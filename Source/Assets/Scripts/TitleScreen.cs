@@ -4,7 +4,7 @@ using System.Collections;
 public class TitleScreen : MonoBehaviour {
     public void PlayGame()
     {
-        Application.LoadLevel("MainGame");
+        Application.LoadLevel("Interlude");
     }
 
     public void QuitGame()

@@ -30,7 +30,7 @@ public class PersistState : MonoBehaviour {
   }
 
   void ResetGame(){
-    stage = 6;
+    stage = 0;
     score = 0;
   }
 	

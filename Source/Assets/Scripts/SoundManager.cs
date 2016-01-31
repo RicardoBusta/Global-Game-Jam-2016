@@ -13,6 +13,8 @@ public class SoundManager : MonoBehaviour {
 	public AudioClip[] forbiddenSound;
 	public static SoundManager instance = null;
 
+  public PartialLoopPlayer loopPlayer;
+
 	public float lowPitchRange = 0.95f;
 	public float highPitchRange = 1.05f;
 
@@ -23,7 +25,8 @@ public class SoundManager : MonoBehaviour {
 		else if(instance!=this)
 			Destroy(gameObject);
 
-        sfxSource = GetComponents<AudioSource>();
+    DontDestroyOnLoad(gameObject);
+    sfxSource = GetComponents<AudioSource>();
 	}
 
 	public void PlaySfx(AudioClip clip){
