@@ -93,13 +93,13 @@ public class SoundManager : MonoBehaviour {
 
 
   public float PlayItemGetSound(string word){
-    Debug.Log("sound of word: "+word);
+//    Debug.Log("sound of word: "+word);
     word = word.Remove( word.IndexOf("(Clone)") );
     word = (word+"_get");
 
     foreach(AudioClip ac in itensGet){
       if (ac.name == word ){
-        Debug.Log("found the word: "+word );
+//        Debug.Log("found the word: "+word );
         PlaySfx( ac );
         return ac.length;
       }
@@ -109,7 +109,7 @@ public class SoundManager : MonoBehaviour {
 
 
   public float PlayItemFallSound(string word){
-    Debug.Log("sound of word: "+word);
+//    Debug.Log("sound of word: "+word);
     word = word.Remove( word.IndexOf("(Clone)") );
     word = (word+"_fall");
 
