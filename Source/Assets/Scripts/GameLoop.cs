@@ -111,8 +111,8 @@ public class GameLoop : MonoBehaviour
     //        babeSlider.value = 0.3f * babeMaxSlider;
 
     GenerateLevel();
-    if (PersistState.GetInstance().stage == 1)
-      SoundManager.GetInstance().loopPlayer.StartPlaying();
+//    if (PersistState.GetInstance().stage == 1)
+//      SoundManager.GetInstance().loopPlayer.StartPlaying();
   }
 
   // Update is called once per frame
@@ -146,7 +146,7 @@ public class GameLoop : MonoBehaviour
     {
       sayCounter[0]++;
       devilText.text = GenerateWord(devilWordCount, devilBalloon);
-      StartCoroutine(SayWord(devilText.text,0, devilBalloon));
+      StartCoroutine(SayWord(devilText.text,0, devilBalloon, true));
       //StartCoroutine(RepeatWord(devilText.text, 0, devilBalloon));
       devilGenerateWord = false;
     }
@@ -154,7 +154,7 @@ public class GameLoop : MonoBehaviour
     {
       sayCounter[1]++;
       babeText.text = GenerateWord(babeWordCount, babeBalloon);
-      StartCoroutine(SayWord(babeText.text,1, babeBalloon));
+      StartCoroutine(SayWord(babeText.text,1, babeBalloon, false));
       //StartCoroutine(RepeatWord(babeText.text, 1, babeBalloon));
       babeGenerateWord = false;
     }
@@ -196,7 +196,7 @@ public class GameLoop : MonoBehaviour
     }
   }
 
-  public IEnumerator SayWord(string whole_word, int index, GameObject textToSet)
+  public IEnumerator SayWord(string whole_word, int index, GameObject textToSet, bool isDevilTalking)
   {
     int thisCounter = sayCounter[index];
     while (thisCounter == sayCounter[index])
@@ -205,7 +205,10 @@ public class GameLoop : MonoBehaviour
       textToSet.SetActive(true);
       foreach (string w in words)
       {
-        yield return new WaitForSeconds(SoundManager.GetInstance().PlayDevilWordSound(w) - 0.4f);
+        if( isDevilTalking )
+          yield return new WaitForSeconds(SoundManager.GetInstance().PlayDevilWordSound(w) - 0.4f);
+        else
+          yield return new WaitForSeconds(SoundManager.GetInstance().PlayBabeWordSound(w) - 0.4f);
       }
       yield return new WaitForSeconds(waitTimeAfterSayWord);
       if (thisCounter == sayCounter[index])

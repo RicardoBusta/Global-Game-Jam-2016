@@ -81,6 +81,8 @@ public class SoundManager : MonoBehaviour {
 	}
 
 	public float PlayDevilWordSound(string word){
+    Debug.Log("devil say word: ");
+
 		foreach(AudioClip ac in wordsDevil){
       if (ac.name.ToLower() == word.ToLower()){
 //                Debug.Log("found the word: "+word);
@@ -92,8 +94,11 @@ public class SoundManager : MonoBehaviour {
   }
 
   public float PlayBabeWordSound(string word){
+    //Debug.Log("babe say word: "+word);
+    word = word + "_babe";
+
     foreach(AudioClip ac in wordsBabe){
-      if (ac.name.ToLower() == word.ToLower()){
+      if (ac.name == word ){
         //                Debug.Log("found the word: "+word);
         PlaySfx( ac );
         return ac.length;
