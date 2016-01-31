@@ -67,6 +67,8 @@ public class GameLoop : MonoBehaviour
 
   public BoxCollider tableCollider;
 
+  float generateCooldown = 0;
+
   int[] sayCounter = new int[] {0,0};
 
   // Use this for initialization
@@ -142,21 +144,28 @@ public class GameLoop : MonoBehaviour
       SceneManager.LoadScene("GameOver"); // Game Over
     }
 
-    if (devilGenerateWord)
+    generateCooldown -= Time.deltaTime;
+
+    if (generateCooldown <= 0)
     {
-      sayCounter[0]++;
-      devilText.text = GenerateWord(devilWordCount, devilBalloon);
-      StartCoroutine(SayWord(devilText.text,0, devilBalloon));
-      //StartCoroutine(RepeatWord(devilText.text, 0, devilBalloon));
-      devilGenerateWord = false;
-    }
-    if (babeGenerateWord)
-    {
-      sayCounter[1]++;
-      babeText.text = GenerateWord(babeWordCount, babeBalloon);
-      StartCoroutine(SayWord(babeText.text,1, babeBalloon));
-      //StartCoroutine(RepeatWord(babeText.text, 1, babeBalloon));
-      babeGenerateWord = false;
+      if (devilGenerateWord)
+      {
+        sayCounter[0]++;
+        devilText.text = GenerateWord(devilWordCount, devilBalloon);
+        StartCoroutine(SayWord(devilText.text, 0, devilBalloon));
+        //StartCoroutine(RepeatWord(devilText.text, 0, devilBalloon));
+        devilGenerateWord = false;
+        generateCooldown = devilWordCount;
+      }
+      else if (babeGenerateWord)
+      {
+        sayCounter[1]++;
+        babeText.text = GenerateWord(babeWordCount, babeBalloon);
+        StartCoroutine(SayWord(babeText.text, 1, babeBalloon));
+        //StartCoroutine(RepeatWord(babeText.text, 1, babeBalloon));
+        babeGenerateWord = false;
+        generateCooldown = babeWordCount;
+      }
     }
   }
 
