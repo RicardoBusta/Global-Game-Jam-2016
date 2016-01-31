@@ -67,6 +67,8 @@ public class GameLoop : MonoBehaviour
 
   public BoxCollider tableCollider;
 
+  float generateCooldown = 0;
+
   int[] sayCounter = new int[] {0,0};
 
   // Use this for initialization
@@ -111,8 +113,8 @@ public class GameLoop : MonoBehaviour
     //        babeSlider.value = 0.3f * babeMaxSlider;
 
     GenerateLevel();
-//    if (PersistState.GetInstance().stage == 1)
-//      SoundManager.GetInstance().loopPlayer.StartPlaying();
+    if (PersistState.GetInstance().stage == 1)
+      SoundManager.GetInstance().loopPlayer.StartPlaying();
   }
 
   // Update is called once per frame
@@ -142,21 +144,28 @@ public class GameLoop : MonoBehaviour
       SceneManager.LoadScene("GameOver"); // Game Over
     }
 
-    if (devilGenerateWord)
+    generateCooldown -= Time.deltaTime;
+
+    if (generateCooldown <= 0)
     {
-      sayCounter[0]++;
-      devilText.text = GenerateWord(devilWordCount, devilBalloon);
-      StartCoroutine(SayWord(devilText.text,0, devilBalloon, true));
-      //StartCoroutine(RepeatWord(devilText.text, 0, devilBalloon));
-      devilGenerateWord = false;
-    }
-    if (babeGenerateWord)
-    {
-      sayCounter[1]++;
-      babeText.text = GenerateWord(babeWordCount, babeBalloon);
-      StartCoroutine(SayWord(babeText.text,1, babeBalloon, false));
-      //StartCoroutine(RepeatWord(babeText.text, 1, babeBalloon));
-      babeGenerateWord = false;
+      if (babeGenerateWord)
+      {
+        sayCounter[1]++;
+        babeText.text = GenerateWord(babeWordCount, babeBalloon);
+        StartCoroutine(SayWord(babeText.text, 1, babeBalloon, false));
+        //StartCoroutine(RepeatWord(babeText.text, 1, babeBalloon));
+        babeGenerateWord = false;
+        generateCooldown = babeWordCount;
+      }
+      else if(devilGenerateWord)
+      {
+        sayCounter[0]++;
+        devilText.text = GenerateWord(devilWordCount, devilBalloon);
+        StartCoroutine(SayWord(devilText.text, 0, devilBalloon, true));
+        //StartCoroutine(RepeatWord(devilText.text, 0, devilBalloon));
+        devilGenerateWord = false;
+        generateCooldown = devilWordCount;
+      }
     }
   }
 
@@ -192,7 +201,7 @@ public class GameLoop : MonoBehaviour
     }
     else
     {
-      SceneManager.LoadScene("Marriage"); // Victory
+      SceneManager.LoadScene("Victory"); // Victory
     }
   }
 
@@ -206,10 +215,10 @@ public class GameLoop : MonoBehaviour
       textToSet.SetActive(true);
       foreach (string w in words)
       {
-        if( isDevilTalking )
+        if(isDevilTalking)
           yield return new WaitForSeconds(SoundManager.GetInstance().PlayDevilWordSound(w) - 0.4f);
         else
-          yield return new WaitForSeconds(SoundManager.GetInstance().PlayBabeWordSound(w) - 0.4f);
+          yield return new WaitForSeconds(SoundManager.GetInstance().PlayBabeWordSound(w) - 0.25f);
       }
       yield return new WaitForSeconds(waitTimeAfterSayWord);
       if (thisCounter == sayCounter[index])
