@@ -68,7 +68,8 @@ public class SummonCircleDetector : MonoBehaviour
             Vector3 summonShift = new Vector3(0, 0.6f, 0);
             GameObject capetinha = (GameObject)Instantiate(capetinhaPrefab, summonPosition.position + summonShift, capetinhaPrefab.transform.rotation);
             capetinha.GetComponent<SpriteRenderer>().color = new Color(Random.Range(0, 1f), Random.Range(0, 1f), Random.Range(0, 1f), 1f);
-            float dir = (Random.Range(-1, 1) > 0 ? 1 : -1);
+
+            float dir = (Random.Range(0, 2)==1 ? 1f : -1f);
             Vector3 p = capetinha.transform.localScale;
             capetinha.transform.localScale = new Vector3(p.x * dir, p.y, p.z);
 

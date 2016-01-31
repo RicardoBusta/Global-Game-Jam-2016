@@ -11,7 +11,7 @@ public class PersistState : MonoBehaviour
     [HideInInspector]
     public int score;
 
-    public int startLevel = 1;
+    public int startLevel = 0;
 
 
     void Start()
@@ -31,7 +31,7 @@ public class PersistState : MonoBehaviour
         ResetGame();
     }
 
-    public static PersistState GetPersistState()
+    public static PersistState GetInstance()
     {
         if (state == null)
         {
@@ -40,14 +40,9 @@ public class PersistState : MonoBehaviour
         return state;
     }
 
-    void ResetGame()
+    public void ResetGame()
     {
         stage = startLevel;
         score = 0;
-    }
-
-    void Update()
-    {
-
     }
 }

@@ -6,21 +6,13 @@ public class LevelDesign : MonoBehaviour {
   public GameLoop game;
   public static int num_stages = 6;
 
-	void Start () {
-	
-	}
-	
-	void Update () {
-	
-	}
-
   public void LevelStage(GameLoop myGame){
     game = myGame;
 
     game.babeGenerateWord = false;
     game.devilGenerateWord = false;
 
-    switch( PersistState.GetPersistState().stage ){
+    switch( PersistState.GetInstance().stage ){
     case 1:
       SetBabeDifficulty(1, 35f, 15f);
       game.matchPoint = 12f; // 2-second cost
