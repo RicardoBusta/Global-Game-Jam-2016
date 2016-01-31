@@ -284,6 +284,9 @@ public class GameLoop : MonoBehaviour
     }
   }
 
+  List<string> devilHappyStrings = new List<string>() { "Nice...", "Good job.", "I am very happy.", "I'm keeping an eye in you." };
+  List<string> babeHappyStrings = new List<string>() { "So adorable...!", "I'm starting to like you!", "So cute!", "Tee hee!" };
+
   public bool CheckFinished(string value)
   {
     Debug.Log("Finished:" + value);
@@ -293,7 +296,7 @@ public class GameLoop : MonoBehaviour
       devilSlider.value += matchPoint;
       if (devilSlider.value >= devilSlider.maxValue)
       {
-        devilText.text = "I am very happy!";
+        devilText.text = devilHappyStrings[Random.Range(0,devilHappyStrings.Count)];
         devilIsHappy = true;
         devilLike.SetActive(true);
       }
@@ -309,7 +312,7 @@ public class GameLoop : MonoBehaviour
       babeSlider.value += matchPoint;
       if (babeSlider.value >= babeSlider.maxValue)
       {
-        babeText.text = "Oh yea, honey!";
+        babeText.text = babeHappyStrings[Random.Range(0, babeHappyStrings.Count)];
         babeIsHappy = true;
         babeLike.SetActive(true);
       }
