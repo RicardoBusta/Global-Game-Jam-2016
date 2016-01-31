@@ -296,7 +296,7 @@ public class GameLoop : MonoBehaviour
       devilSlider.value += matchPoint;
       if (devilSlider.value >= devilSlider.maxValue)
       {
-        devilText.text = devilHappyStrings[Random.Range(0,devilHappyStrings.Count)];
+        devilText.text = devilHappyStrings[Random.Range(0,devilHappyStrings.Count-1)];
         devilIsHappy = true;
         devilLike.SetActive(true);
       }
@@ -312,7 +312,7 @@ public class GameLoop : MonoBehaviour
       babeSlider.value += matchPoint;
       if (babeSlider.value >= babeSlider.maxValue)
       {
-        babeText.text = babeHappyStrings[Random.Range(0, babeHappyStrings.Count)];
+        babeText.text = babeHappyStrings[Random.Range(0, babeHappyStrings.Count-1)];
         babeIsHappy = true;
         babeLike.SetActive(true);
       }
