@@ -204,6 +204,7 @@ MonoBehaviour:
   prefab: {fileID: 0}
   wasReleased: 0
   acceptedItem: 0
+  vanishAnimation: {fileID: 197536, guid: 3c2de5cb575c1b44893c25d7b1bf3e75, type: 2}
 --- !u!114 &11424924
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -226,6 +227,10 @@ Prefab:
       propertyPath: placed
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: vanishAnimation
+      value: 
+      objectReference: {fileID: 197536, guid: 3c2de5cb575c1b44893c25d7b1bf3e75, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 161974}

@@ -23,6 +23,9 @@ public class GameLoop : MonoBehaviour
     public Slider devilSlider;
     public Slider babeSlider;
 
+    public GameObject devilObject;
+    public GameObject babeObject;
+
     public GameObject sign;
 
     [HideInInspector]
@@ -63,14 +66,18 @@ public class GameLoop : MonoBehaviour
         if (!devilGenerateWord)
         {
             devilIsHappy = true;
+            devilObject.SetActive(false);
+            babeObject.transform.position += new Vector3(-babeObject.transform.position.x, 0f, 0f);
             devilSlider.value = devilSlider.maxValue;
-      devilSlider.gameObject.SetActive(false);
+            devilSlider.gameObject.SetActive(false);
         }
         if (!babeGenerateWord)
         {
             babeIsHappy = true;
+            babeObject.SetActive(false);
+            devilObject.transform.position += new Vector3(-devilObject.transform.position.x, 0f, 0f);
             babeSlider.value = babeSlider.maxValue;
-      babeSlider.gameObject.SetActive(false);
+            babeSlider.gameObject.SetActive(false);
         }
 
         devilBalloon.SetActive(false);
@@ -153,7 +160,7 @@ public class GameLoop : MonoBehaviour
         textToSet.SetActive(true);
         foreach (string w in words)
         {
-      yield return new WaitForSeconds(SoundManager.GetInstance().PlayWordSound(w) - 0.4f);
+          yield return new WaitForSeconds(SoundManager.GetInstance().PlayWordSound(w) - 0.4f);
         }
         yield return new WaitForSeconds(waitTimeAfterSayWord);
         textToSet.SetActive(false);
@@ -219,7 +226,7 @@ public class GameLoop : MonoBehaviour
         }
     }
 
-    public void CheckFinished(string value)
+    public bool CheckFinished(string value)
     {
         Debug.Log("Finished:" + value);
         if (!devilIsHappy && value == devilText.text)
@@ -235,7 +242,7 @@ public class GameLoop : MonoBehaviour
             {
                 devilText.text = GenerateWord(devilWordCount, devilBalloon);
             }
-            return;
+            return true;
         }
         if (!babeIsHappy && value == babeText.text)
         {
@@ -250,7 +257,8 @@ public class GameLoop : MonoBehaviour
             {
                 babeText.text = GenerateWord(babeWordCount, babeBalloon);
             }
-            return;
+            return true;
         }
+        return false;
     }
 }

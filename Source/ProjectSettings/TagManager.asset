@@ -8,6 +8,8 @@ TagManager:
   - Sound Manager
   - Floor
   - Persist State
+  - Fire
+  - Summon Circle
   layers:
   - Default
   - TransparentFX

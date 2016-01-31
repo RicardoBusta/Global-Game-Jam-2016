@@ -2,7 +2,6 @@
 using System.Collections;
 
 public class Item : MonoBehaviour {
-
     public string word;
     public bool finisher;
     public TextMesh name;
@@ -12,6 +11,7 @@ public class Item : MonoBehaviour {
     public bool wasReleased = false;
     float lifeTime = 5.0f;
     public bool acceptedItem = false;
+    public GameObject vanishAnimation;
 
 	// Use this for initialization
 	void Start () {
@@ -25,7 +25,7 @@ public class Item : MonoBehaviour {
             lifeTime -= Time.deltaTime;
             if (lifeTime <= 0)
             {
-                Destroy(gameObject);
+                StartCoroutine(FadeAnimation());
             }
         }
 	}
@@ -43,5 +43,13 @@ public class Item : MonoBehaviour {
         yield return new WaitForSeconds(0.5f);
         GameObject go = (GameObject)Instantiate(prefab, startPosition, prefab.transform.rotation);
         go.GetComponent<Item>().prefab = prefab;
+    }
+
+    public IEnumerator FadeAnimation()
+    {
+        Destroy(gameObject);
+        GameObject animation = (GameObject)Instantiate(vanishAnimation, transform.position, Quaternion.identity);
+        yield return new WaitForSeconds(2);
+        Destroy(animation);
     }
 }
