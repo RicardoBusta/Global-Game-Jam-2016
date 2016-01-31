@@ -39,6 +39,7 @@ public class DragTransform : MonoBehaviour {
         Item i = GetComponent<Item>();
         i.StartCoroutine(i.WaitAndRespawn());
         i.userDragged = true;
+        SoundManager.GetInstance().PlayItemGetSound( gameObject.name );
     }
 
     void OnMouseUp()
@@ -61,6 +62,7 @@ public class DragTransform : MonoBehaviour {
         // ideia do renan
         GetComponent<Item>().wasReleased = true;
         enabled = false;
+        SoundManager.GetInstance().PlayItemFallSound( gameObject.name );
     }
 
     void Update()

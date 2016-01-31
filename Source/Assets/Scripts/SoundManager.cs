@@ -4,8 +4,10 @@ using System.Collections;
 public class SoundManager : MonoBehaviour {
 
   private AudioSource[] sfxSources = null;
-	public AudioClip[] words;
-    public AudioClip[] wordsBabe;
+	public AudioClip[] wordsDevil;
+  public AudioClip[] wordsBabe;
+  public AudioClip[] itensGet;
+  public AudioClip[] itensFall;
 
 	public AudioClip[] confirmSound;
 	public AudioClip[] bigConfirmSound;
@@ -78,16 +80,49 @@ public class SoundManager : MonoBehaviour {
 		PlayRandomPitchSfx( clips[randomIndex] );
 	}
 
-	public float PlayWordSound(string word){
-		foreach(AudioClip ac in words){
-            if (ac.name.ToLower() == word.ToLower()){
-                Debug.Log("found the word: "+word);
-                PlaySfx( ac );
-                return ac.length;
-            }
-        }
-        return 0;
+	public float PlayDevilWordSound(string word){
+		foreach(AudioClip ac in wordsDevil){
+      if (ac.name.ToLower() == word.ToLower()){
+//                Debug.Log("found the word: "+word);
+        PlaySfx( ac );
+        return ac.length;
+      }
+    }
+    return 0;
 	}
+
+
+  public float PlayItemGetSound(string word){
+    Debug.Log("sound of word: "+word);
+    word = word.Remove( word.IndexOf("(Clone)") );
+    word = (word+"_get");
+
+    foreach(AudioClip ac in itensGet){
+      if (ac.name == word ){
+        Debug.Log("found the word: "+word );
+        PlaySfx( ac );
+        return ac.length;
+      }
+    }
+    return 0;
+  }
+
+
+  public float PlayItemFallSound(string word){
+    Debug.Log("sound of word: "+word);
+    word = word.Remove( word.IndexOf("(Clone)") );
+    word = (word+"_fall");
+
+    foreach(AudioClip ac in itensFall){
+      if (ac.name == word ){
+        //        Debug.Log("found the word: "+word);
+        PlaySfx( ac );
+        return ac.length;
+      }
+    }
+    return 0;
+  }
+
 
 
 	public void PlayConfirmSound(){

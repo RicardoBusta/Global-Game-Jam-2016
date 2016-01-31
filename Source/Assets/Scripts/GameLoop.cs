@@ -160,7 +160,7 @@ public class GameLoop : MonoBehaviour
         textToSet.SetActive(true);
         foreach (string w in words)
         {
-          yield return new WaitForSeconds(SoundManager.GetInstance().PlayWordSound(w) - 0.4f);
+          yield return new WaitForSeconds(SoundManager.GetInstance().PlayDevilWordSound(w) - 0.4f);
         }
         yield return new WaitForSeconds(waitTimeAfterSayWord);
         textToSet.SetActive(false);
