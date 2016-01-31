@@ -158,6 +158,7 @@ public class GameLoop : MonoBehaviour
     Item fi = finishers[Random.Range(0, finishers.Count)].GetComponent<Item>();
     word += fi.word;
 
+    StopCoroutine(SayWord(word, textToSet));
     StartCoroutine(SayWord(word, textToSet));
 
     return word;
