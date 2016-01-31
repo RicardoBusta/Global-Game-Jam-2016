@@ -54,7 +54,7 @@ public class LevelDesign : MonoBehaviour {
     case 6:
       //SetBabeDifficulty(2, 40f, 15f);
       SetDevilDifficulty(4, 70f, 20f);
-      game.matchPoint = 200f; // 8-second cost
+      game.matchPoint = 20f; // 8-second cost
 
       game.ingredientCount = 6;
       game.finisherCount = 3;
