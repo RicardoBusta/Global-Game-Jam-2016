@@ -59,13 +59,14 @@ public class SummonCircleDetector : MonoBehaviour
         }
         collidedItems.Clear();
 
-        GameObject capetinha = (GameObject)Instantiate(capetinhaPrefab,summonPosition.position,capetinhaPrefab.transform.rotation);
+        Vector3 summonShift = new Vector3(0, 0.6f, 0);
+        GameObject capetinha = (GameObject)Instantiate(capetinhaPrefab, summonPosition.position + summonShift, capetinhaPrefab.transform.rotation);
         float dir = (Random.Range(-1, 1) > 0 ? 1 : -1);
         Vector3 p = capetinha.transform.localScale;
         capetinha.transform.localScale = new Vector3(p.x * dir, p.y, p.z);
         for (float f = 0; f < 1; f += 0.01f)
         {
-            capetinha.transform.position = Vector3.Lerp(summonPosition.position,summonPosition.position + new Vector3(dir*10,0,0),f);
+            capetinha.transform.position = Vector3.Lerp(summonPosition.position + summonShift, summonShift+ summonPosition.position + new Vector3(dir * 10, 0, 0), f);
             yield return new WaitForSeconds(0.01f);
         }
         Destroy(capetinha);
