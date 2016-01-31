@@ -19,19 +19,31 @@ public class SoundManager : MonoBehaviour {
 	public float highPitchRange = 1.05f;
 
 
-	void Awake () {
-		if(instance == null)
-			instance = this;
-		else if(instance!=this)
+	void Start () {
+    if(instance == null){
+      instance = this;
+      DontDestroyOnLoad(gameObject);
+    }else if(instance!=this){
 			Destroy(gameObject);
+    }
 
-    DontDestroyOnLoad(gameObject);
     sfxSource = GetComponents<AudioSource>();
 	}
 
+  public static SoundManager GetInstance(){
+    if(instance!=null){
+      Debug.Log("had the reference");
+      return instance;
+    }else{
+      Debug.Log("did not have the reference");
+      instance = GameObject.FindWithTag("Sound Manager").GetComponent<SoundManager>();
+      return instance;
+    }
+  }
+
 	public void PlaySfx(AudioClip clip){
 		foreach( AudioSource audio in sfxSource ){
-			if( !audio.isPlaying ){
+ 			if( !audio.isPlaying ){
 				audio.pitch = 1f;
 				audio.clip = clip;
 				audio.Play();
@@ -76,23 +88,23 @@ public class SoundManager : MonoBehaviour {
 
 
 	public void PlayConfirmSound(){
-		SoundManager.instance.RandomizeSfx(confirmSound);
+		RandomizeSfx(confirmSound);
 	}
 
 	public void PlayBigConfirmSound(){
-		SoundManager.instance.RandomizeSfx(bigConfirmSound);
+		RandomizeSfx(bigConfirmSound);
 	}
 	
 	public void PlayCancelSound(){
-		SoundManager.instance.RandomizeSfx(cancelSound);
+		RandomizeSfx(cancelSound);
 	}
 	
 	public void PlayCursorSound(){
-		SoundManager.instance.RandomizeSfx(cursorSound);
+		RandomizeSfx(cursorSound);
 	}
 	
 	public void PlayForbiddenSound(){
-		SoundManager.instance.RandomizeSfx(forbiddenSound);
+		RandomizeSfx(forbiddenSound);
 	}
 	
 }

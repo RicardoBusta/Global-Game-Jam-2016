@@ -92,7 +92,8 @@ public class GameLoop : MonoBehaviour
         //        babeSlider.value = 0.3f * babeMaxSlider;
 
         GenerateLevel();
-        SoundManager.instance.loopPlayer.StartPlaying();
+    if( PersistState.GetPersistState().stage ==1 )
+      SoundManager.GetInstance().loopPlayer.StartPlaying();
     }
 
     // Update is called once per frame
