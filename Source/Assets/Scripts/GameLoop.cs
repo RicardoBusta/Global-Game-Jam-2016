@@ -201,6 +201,7 @@ public class GameLoop : MonoBehaviour
     int thisCounter = sayCounter[index];
     while (thisCounter == sayCounter[index])
     {
+      if ((devilIsHappy && index == 0) || (babeIsHappy && index == 1)) yield break;
       string[] words = whole_word.Split(' ');
       textToSet.SetActive(true);
       foreach (string w in words)
