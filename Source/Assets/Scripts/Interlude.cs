@@ -7,7 +7,7 @@ public class Interlude : MonoBehaviour {
   public Text interludeText;
 
   void Start(){
-    switch( PersistState.GetPersistState().stage ){
+    switch( PersistState.GetInstance().stage ){
     case 0:
       interludeText.text = "While casually summoning fiends, you summon a cute belzebabe. Try to please her by performing her ritual summonings of preference.";
       break;
@@ -30,7 +30,7 @@ public class Interlude : MonoBehaviour {
   }
 
   public void NextStage(){
-    PersistState.GetPersistState().stage++;
+    PersistState.GetInstance().stage++;
     Application.LoadLevel("MainGame");
   }
 

@@ -105,7 +105,7 @@ public class GameLoop : MonoBehaviour
     //        babeSlider.value = 0.3f * babeMaxSlider;
 
     GenerateLevel();
-    if (PersistState.GetPersistState().stage == 1)
+    if (PersistState.GetInstance().stage == 1)
       SoundManager.GetInstance().loopPlayer.StartPlaying();
   }
 
@@ -180,7 +180,7 @@ public class GameLoop : MonoBehaviour
     Destroy(firework1);
     Destroy(firework2);
 
-    if (PersistState.GetPersistState().stage < LevelDesign.num_stages)
+    if (PersistState.GetInstance().stage < LevelDesign.num_stages)
     {
       SceneManager.LoadScene("Interlude"); // interlude
     }
