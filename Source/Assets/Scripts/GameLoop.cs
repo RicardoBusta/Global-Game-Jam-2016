@@ -64,6 +64,8 @@ public class GameLoop : MonoBehaviour
 
   public BoxCollider tableCollider;
 
+  int sayCounter = 0;
+
   // Use this for initialization
   void Start()
   {
@@ -185,6 +187,8 @@ public class GameLoop : MonoBehaviour
 
   public IEnumerator SayWord(string whole_word, GameObject textToSet)
   {
+    sayCounter++;
+    int thisCounter = sayCounter;
     string[] words = whole_word.Split(' ');
     textToSet.SetActive(true);
     foreach (string w in words)
@@ -192,7 +196,10 @@ public class GameLoop : MonoBehaviour
       yield return new WaitForSeconds(SoundManager.GetInstance().PlayDevilWordSound(w) - 0.4f);
     }
     yield return new WaitForSeconds(waitTimeAfterSayWord);
-    textToSet.SetActive(false);
+    if (thisCounter == sayCounter)
+    {
+      textToSet.SetActive(false);
+    }
   }
 
   void Shuffle<T>(List<T> list)
