@@ -9,7 +9,7 @@ public class Interlude : MonoBehaviour {
   void Start(){
     switch( PersistState.GetInstance().stage ){
     case 0:
-      interludeText.text = "While casually summoning fiends, you summon a cute belzebabe. Try to please her by performing her ritual summonings of preference.";
+      interludeText.text = "While casually summoning fiends, you summon a cute belzebabe. Try to please her by performing her summoning rituals of preference.";
       break;
     case 1:
       interludeText.text = "She speaks her name to you: it's Satania. Amuze her by performing more successful rituals.";
