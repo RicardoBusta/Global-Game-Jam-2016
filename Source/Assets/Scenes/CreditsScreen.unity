@@ -540,7 +540,7 @@ RectTransform:
   m_RootOrder: 2
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 261, y: -92}
+  m_AnchoredPosition: {x: 261, y: -77}
   m_SizeDelta: {x: 458.38, y: 368.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &903201977
@@ -578,7 +578,7 @@ MonoBehaviour:
   m_Text: "Game Design\n<color=#fff>\tRenan Rodrigues</color>\n<color=#fff>\tRicardo
     Bustamante</color>\n<color=#fff>\tLuan Lucas</color>\nStory\n<color=#fff>\tRenan
     Rodrigues</color>\n<color=#fff>\tCesar Costa</color>\n2D Art\n<color=#fff>\tCesar
-    Costa</color>\n<color=#fff>\tGuilherme </color>"
+    Costa</color>\n<color=#fff>\tWescley Guilherme </color>"
 --- !u!222 &903201978
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -616,7 +616,7 @@ RectTransform:
   m_RootOrder: 3
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 797, y: -92}
+  m_AnchoredPosition: {x: 797, y: -77}
   m_SizeDelta: {x: 458.38, y: 368.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &963199587
@@ -653,7 +653,8 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: "3D Art\n<color=#fff>\tElson Pegado</color>\n<color=#fff>\tRicardo Bustamante</color>\nProgramming\n<color=#fff>\tRicardo
     Bustamante</color>\n<color=#fff>\tRenan Rodrigues</color>\nVoice Acting\n<color=#fff>\tRenan
-    Rodrigues</color>\n<color=#fff>\tVanessa Karla</color>"
+    Rodrigues</color>\n<color=#fff>\tVanessa Karla</color>\nMusic & Sound Design\n<color=#fff>\tLuan
+    Lucas</color>"
 --- !u!222 &963199588
 CanvasRenderer:
   m_ObjectHideFlags: 0
